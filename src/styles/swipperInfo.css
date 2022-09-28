@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap');
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 500px;
+  margin: 20px auto;
+}
+.append-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.append-buttons button {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #007aff;
+  color: #007aff;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 0 10px;
+  font-size: 13px;
+}
+.swiper-pagination {
+  display: none !important;
+}
+.swiper-button-next {
+  color: rgb(236, 114, 114);
+  margin-right: 20px !important;
+}
+.swiper-button-prev {
+  color: rgb(236, 114, 114);
+  margin-left: 20px !important;
+}
+/*My CSS*/
+.custom-slide1 {
+  background:url("https://static.gamehag.com/upload/2xSxszubqkzZoK3C0EQWy6F8eveuLt.jpg") left / cover no-repeat !important;
+  border-radius: 5px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.custom-slide1:hover .custom-slide-h3 {
+  display: contents;
+  animation: appear-title 0.5s ease-out;
+}
+.custom-slide2 {
+  background:url("https://images8.alphacoders.com/413/413860.jpg") center / cover no-repeat !important;
+  border-radius: 5px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.custom-slide2:hover .custom-slide-h3 {
+  display: contents;
+  animation: appear-title 0.5s ease-out;
+}
+.custom-slide3 {
+  background:url("https://image.api.playstation.com/cdn/UP0002/CUSA07402_00/j95OOcXv9EX4QOublRTfoOZtywFwkI6w.jpg") right / cover no-repeat !important;
+  border-radius: 5px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.custom-slide3:hover .custom-slide-h3 {
+  display: contents;
+  animation: appear-title 0.5s ease-out;
+}
+.custom-slide4 {
+  background:url("https://www.somosxbox.com/wp-content/uploads/2020/01/silent-hill-3-790x509.jpg") center / cover no-repeat !important;
+  border-radius: 5px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.custom-slide4:hover .custom-slide-h3 {
+  display: contents;
+  animation: appear-title 0.5s ease-out;
+}
+.custom-slide5 {
+  background:url("https://images5.alphacoders.com/319/thumb-1920-319578.jpg") left / cover no-repeat !important;
+  border-radius: 5px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.custom-slide5:hover .custom-slide-h3 {
+  display: contents;
+  animation: appear-title 0.5s ease-out;
+}
+.custom-slide-p {
+ background-color: white;
+ width: 60%;
+ padding: 2rem !important;
+ border-radius: 5px;
+ font-family: 'IBM Plex Serif', serif;
+ box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.50);
+ transition: all 0.5s;
+ font-size: 1.4vw;
+ text-align: center;
+}
+.custom-slide-h3 {
+  color: rgb(224, 0, 0);
+  text-shadow: 1px 0px black;
+  width: 100%;
+  font-family: 'IBM Plex Serif', serif;
+  text-shadow: 2px 0px black;
+  font-size: 3vw;
+  letter-spacing: 2px;
+  display: none;
+}
+.hover-slide:hover {
+  cursor:grab;
+}
+.hover-slide:active {
+  cursor:grabbing;
+}

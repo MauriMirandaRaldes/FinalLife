@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Container1*/
+.container-welcome {
+    height: 30vh;
+    z-index: 2;
+    background-color: rgba(128, 128, 128, 0.349);
+}
+
+.container-welcome h3 {
+    /*Hi Gamer!*/
+    font-size: 4.5vw;
+    animation: appear-left 1.4s ease-out;
+    padding-left: 1.5rem;
+    font-family: 'IBM Plex Serif', serif;
+    width: 50%;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 1px 0px black;
+}
+
+@keyframes appear-left {
+    0% {
+        color: rgba(0, 0, 0, 0);
+        text-shadow: none;
+        transform: translateX(-100px);
+    }
+}
+
+.container-welcome h2 {
+    /*Welcome to*/
+    font-size: 4.5vw;
+    font-family: 'IBM Plex Serif', serif;
+    padding-left: 4rem;
+    animation: appear-right 1.4s ease-out;
+    width: 50%;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 1px 0px black;
+}
+
+@keyframes appear-right {
+    0% {
+        color: rgba(0, 0, 0, 0);
+        text-shadow: none;
+        transform: translateX(100px);
+    }
+}
+
+/*Container2*/
+.container2-welcome {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container2-welcome img {
+    height: 48%;
+    animation: appear-img 2s ease-out;
+}
+.container2-welcome img:hover {
+    cursor: pointer;
+}
+
+@keyframes appear-img {
+    0% {
+        opacity: 0;
+    }
+}
+
+.custom-title {
+    color: rgb(236, 114, 114);
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 12vw;
+    letter-spacing: 5px;
+    text-shadow: 3px 0px darkred;
+    animation: appear-title 2s ease-out;
+}
+
+@keyframes appear-title {
+    0% {
+        color: rgba(255, 0, 0, 0);
+        text-shadow: none;
+    }
+}
+/*Alert*/
+.custom-alert-welcome {
+    background-color: rgb(247, 167, 108) !important;
+}
