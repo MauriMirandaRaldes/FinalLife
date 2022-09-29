@@ -1,17 +1,27 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/games.css";
-import axios from "axios"
+import axios from "axios";
 /*Assets*/
 import videogames from "../assets/videogames.png";
 /*Components*/
 import ResponsiveAppBar from "../components/navbar";
-import fewGames from "../games.json"
+import SwiperVertical from "../components/swiperVertical";
+import fewGames from "../games.json";
+import Cards from "../components/cards"
 
 function Games() {
 
-    const getStarted = ()=> {
-        window.scrollTo(0,700)
-    }
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/allGames")
+      .then((res) => setGames(res.data.response));
+  }, []);
+
+  const getStarted = () => {
+    window.scrollTo(0, 700);
+  };
 
   return (
     <>
@@ -19,52 +29,34 @@ function Games() {
         <ResponsiveAppBar />
       </header>
 
-      <main>
-        <section className="section1-games">
+      <main className="main-games">
         <div className="div1-games">
-            {fewGames?.map(element => {
-                let render = 
-
-                <img key={element.image} className="custom-img-fewGames" src={element.image} />
-
-                return render
-            })}
+          <div className="subdiv1-games">
+            <div className="sub-subdiv1-games">
+              <h2>Search, interact and share</h2>
+              <h4>If your game is not found add it yourself</h4>
+            </div>
+            <div className="sub-subdiv2-games" >
+              <img src={videogames} />
+            </div>
+          </div>
+          <div className="subdiv2-games">
+            <div className="sub-subdiv3-games">
+              <input/>
+            </div>
+            <div className="sub-subdiv4-games">
+              <Cards allGames = {games? games : null}/>
+            </div>
+          </div>
         </div>
         <div className="div2-games">
-            <div className="subdiv1-games">
-            <h2>Explore, have fun and share your opinion with the community.</h2>
-            <h2>If your game is not there, we invite you to add it and make it known :)</h2>
-            <button onClick={getStarted} className="button-getStarted">Get started</button>
-            </div>
-            <div className="subdiv2-games">
-            <img src={videogames} />
-            </div>
+          <SwiperVertical/>
         </div>
-        <div className="div1-games">
-        {fewGames?.map(element => {
-                let render = 
-
-                <img key={element.image2} className="custom-img-fewGames" src={element.image2} />
-
-                return render
-            })}
-        </div>
-        </section>
-        <section className="section2-games">
-            <div className="div4-games"></div>
-            <div className="div3-games">
-            <div className="subdiv3-games">
-                <input placeholder="Search your game"/>
-            </div>
-            <div className="subdiv4-games">
-
-            </div>
-            </div>
-            <div className="div4-games"></div>
-        </section>
       </main>
 
-      <footer></footer>
+      <footer>
+
+      </footer>
     </>
   );
 }

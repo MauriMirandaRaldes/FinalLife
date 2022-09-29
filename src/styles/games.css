@@ -9,103 +9,77 @@
 
 /*Main*/
 /*Section1*/
-.section1-games {
-    height: 90vh;
+.main-games {
+    background-color: pink;
+    height: 190vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .div1-games {
     background-color: red;
-    width: 15%;
+    width: 80%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 1rem;
 }
 .div2-games {
-    background-color: white;
-    width: 70%;
+    background-color: chocolate;
+    width: 20%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .subdiv1-games {
-    background-color: pink;
-    width: 100%;
-    height: 30%;
+    background-color: deepskyblue;
+    height: 90vh;
+}
+.sub-subdiv1-games {
+    background-color: blueviolet;
+    height: 20%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding-left: 1.5rem;
+}
+.sub-subdiv1-games h2 {
+    font-size: 2vw;
+}
+.sub-subdiv1-games h4 {
+    font-size: 1.2vw;
+}
+.sub-subdiv2-games {
+    background-color: lime;
+    height: 80%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'IBM Plex Serif', serif;
-    font-size: 1.3vw;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+.sub-subdiv2-games img {
+    height: 80%;
 }
 .subdiv2-games {
-    /* background-color: orange; */
-    height: 70%;
+    background-color: pink;
+}
+.sub-subdiv3-games {
+    background-color: magenta;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.subdiv2-games img {
-    width: 70%;
+.sub-subdiv4-games {
+    background-color: mediumseagreen;
+    height: 90vh;
 }
-.button-getStarted {
-    padding: 10px;
-    font-family: 'IBM Plex Serif', serif;
-    margin-top: 1rem;
-}
-/*div1*/
-.custom-img-fewGames {
-    width: 85%;
-    height: 15%;
-    border: 2px solid white;
-    padding: 3px;
-    border-radius: 5px;
-    object-fit: cover;
-}
-/*Section2*/
-.section2-games {
+/*CSS Cards*/
+.container-cards {
+    background-color: green;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.div3-games {
-    /* background-color: coral;
-    min-height: 100vh; */
-    width: 70%;
-}
-.div4-games {
-    background-color: red;
-    width: 15%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 1rem;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    padding: 2rem 2rem 0 2rem;
 }
-.subdiv3-games {
-    background-color: purple;
-    height: 20vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.subdiv3-games input {
-    padding: 1rem;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-}
-.subdiv4-games {
-    background-color: greenyellow;
-    min-height: 80vh;
-}
+
 /*Footer*/
