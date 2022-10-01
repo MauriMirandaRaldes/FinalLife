@@ -10,17 +10,14 @@
 /*Main*/
 /*Section1*/
 .main-games {
-    background-color: pink;
     height: 190vh;
     display: flex;
 }
 .div1-games {
-    background-color: red;
     width: 80%;
     height: 100%;
 }
 .div2-games {
-    background-color: chocolate;
     width: 20%;
     height: 100%;
     display: flex;
@@ -28,25 +25,50 @@
     justify-content: center;
 }
 .subdiv1-games {
-    background-color: deepskyblue;
     height: 90vh;
 }
 .sub-subdiv1-games {
-    background-color: blueviolet;
+    /* background-color: var(--color2-games); */
     height: 20%;
     display: flex;
+    align-items: center;
+}
+.container-title-games{
+    color: var(--color2);
+    height: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding-left: 1.5rem;
+    width: 40%;
+    font-family: 'IBM Plex Serif', serif
+}
+.container-buttonScroll-games {
+    /* background-color: blue; */
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+.container-buttonScroll-games button {
+    padding: 10px;
+    font-family: 'IBM Plex Serif', serif;
+    margin-top: 12px;
+    border: none;
+    border-radius: 5px;
+    border: 5px inset var(--color3);
+}
+.container-buttonScroll-games button:hover {
+    cursor: pointer;
+    border: 5px inset grey;
 }
 .sub-subdiv1-games h2 {
     font-size: 2vw;
 }
-.sub-subdiv1-games h4 {
-    font-size: 1.2vw;
-}
 .sub-subdiv2-games {
-    background-color: lime;
+    /* background-color: lime; */
+    background: linear-gradient(var(--color4), var(--color1));
+    background-attachment: fixed;
     height: 80%;
     display: flex;
     align-items: center;
@@ -55,24 +77,27 @@
 .sub-subdiv2-games img {
     height: 80%;
 }
-.subdiv2-games {
-    background-color: pink;
-}
 .sub-subdiv3-games {
-    background-color: magenta;
+    /* background-color: magenta; */
+    background-color: rgba(0, 0, 0, 0.185);
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
+.sub-subdiv3-games input {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none;
+}
+/*Container container swiper*/
 .sub-subdiv4-games {
-    background-color: mediumseagreen;
     height: 90vh;
 }
 
 /*CSS Cards*/
 .container-cards {
-    background-color: green;
     width: 100%;
     height: 100%;
     display: flex;
@@ -81,6 +106,28 @@
     flex-wrap: wrap;
     overflow-y: scroll;
     padding: 2rem 2rem 0 2rem;
+    background: linear-gradient(var(--color4), var(--color1));
+}
+.container-notFound {
+    background-color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-notFound img {
+    width: 50%;
+}
+.container-linkrouter-cards {
+    background-color: orange;
+    width: 30%;
+    height: 30vh;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
 /*Footer*/

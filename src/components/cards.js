@@ -1,16 +1,22 @@
-import React,{useEffect, useState} from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { alpha, Box, Button, CardActionArea, CardActions } from '@mui/material';
+import {CardActionArea} from '@mui/material';
+/*My imports*/
+import {Link as LinkRouter} from "react-router-dom"
+/*Assets*/
+import sadGuy from "../assets/sad-guy.png"
 
 export default function Cards(props) {
 
+  /*Capturo las props que vienen de mi página "games" y coloco cada una en una constante*/
   const allGames = props.allGames
   const writtenGames = props.inputText
   const checkedGames = props.inputCheckbox
 
+  /*Realizo el filtro cruzado entre el input de texto y los checkboxs*/
   const box = []
   const box2 = []
   if (writtenGames){
@@ -28,23 +34,37 @@ export default function Cards(props) {
   } else {
     if (checkedGames){
       box2.push(...checkedGames)
+    } else {
+      box2.push(...allGames)
     }
   }
 
-  /*La const "finalBox" guarda toda la data actualizada y filtrada. Por ahora "finalBox" es el resultado final para mapear */
+  /*En la const "finalBox" los datos recopilados de mis inputs y gracias al new Set los seteo sólo una vez*/
   const finalBox = []
   if (box2.length > 0){
     const once = new Set (box2)
     finalBox.push(...once)
+  } 
+
+  /*En la const "allNames" guardo los nombres de cada juego, ordenados de manera alfabética*/
+  const allNames = []
+  allGames.map(element => allNames.push(element.name))
+  allNames.sort()
+
+  /*En la const "orderElements" guardo los datos finales de mis filtros cruzados, seteados con el new Set y ordenados de la A a la Z*/
+  const orderElements = []
+  if (finalBox.length > 0){
+    allNames.map(element => {
+      let filterFinalBox = finalBox.filter(element2 => element2.name == element)
+      orderElements.push(...filterFinalBox)
+    })
   }
 
-  /*Cuando vuelva tengo que ver una manera de usar el método sort() para que los juegos estén ordenados por nombre de la A a la Z*/
-
-  /*En MUI el atributo sx me permite ingresar stylos de css en el mismo componente*/
+  /*RECORDATORIO DE MUI: El atributo "sx" me permite ingresar stylos de css en el mismo componente*/
 
   return (
     <div className="container-cards" >
-        {/* {box2.length > 0? box2.map(element => {
+        {orderElements.length > 0? orderElements.map(element => {
 
             let render = 
               <Card  key={element.name}  sx={{ width: 300, height: 300, marginBottom: 4, backgroundColor: "red"}}>
@@ -71,7 +91,15 @@ export default function Cards(props) {
             </Card>
             return render
 
-        }) : <h2>Not Found</h2>}   */}
+        }) : <div className='container-notFound'>
+               <img src={sadGuy} />
+               <div className='container-linkrouter-cards'>
+               <h2>Your game was not found but dont worry, you can add it clicking the link below</h2>
+               <LinkRouter>
+               <h3>Click Me</h3>
+               </LinkRouter>
+               </div>
+             </div>}  
     </div>
   );
 }

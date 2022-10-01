@@ -19,7 +19,7 @@ import {Link as LinkRouter} from "react-router-dom"
 const pages = ["home", "games", "mario", "sonic", "contact"];
 const settings = ['Profile', 'Account', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,7 +39,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{visibility: props.visibility}}>
       <Container className='custom-container-nav' maxWidth="xl">
         <Toolbar disableGutters>
             <img className='custom-img-navbar' src={heart} />

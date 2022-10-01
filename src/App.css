@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/*Variables*/
+:root {
+  --color1: white;
+  --color2: black;
+  --color3: rgb(252, 248, 232);
+  --color4: rgb(148, 180, 159);
+  --color5: rgb(223, 120, 97);
+  --color6: rgb(118, 84, 154);
+}

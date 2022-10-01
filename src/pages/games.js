@@ -61,18 +61,38 @@ function Games() {
     }
   }
 
+  /*Al clickear el "buttonScroll" baja la pantalla 700px sobre el eje Y*/
+  const [visibility, setVisibility] = useState()
+  const buttonScroll = ()=> {
+    window.scrollTo(0, 700)
+  }
+
+  /*Cuando la pantalla tiene más de 550px sobre el ejeY el nav se oculta, de lo contrario esá visible*/
+  window.onscroll = ()=> {
+    if (window.scrollY >= 550){
+      setVisibility("hidden")
+    } else {
+      setVisibility("visible")
+    }
+  }
+
   return (
     <>
       <header className="header-home">
-        <ResponsiveAppBar />
+        <ResponsiveAppBar visibility={visibility? visibility : null} />
       </header>
 
       <main className="main-games">
         <div className="div1-games">
           <div className="subdiv1-games">
             <div className="sub-subdiv1-games">
+              <div className="container-title-games">
               <h2>Search, interact and share</h2>
-              <h4>If your game is not found add it yourself</h4>
+              <h3>If your game is not found add it yourself</h3>
+              </div>
+              <div className="container-buttonScroll-games">
+                <button onClick={buttonScroll} >Get started</button>
+              </div>
             </div>
             <div className="sub-subdiv2-games" >
               <img src={videogames} />
@@ -80,11 +100,11 @@ function Games() {
           </div>
           <div className="subdiv2-games">
             <div className="sub-subdiv3-games">
-              <input onKeyUp={writting} placeholder="Search" />
+              <input onKeyUp={writting} placeholder="Search your game" />
               {box2?.map(element => {
                 let render =
                 <div key={element} >
-                  <label><input onClick={useCheckbox} type="checkbox" value={element} />{element}</label>
+                  <label><input onClick={useCheckbox} type="checkbox" value={element} /> {element}</label>
                 </div>
                 return render
               })}
