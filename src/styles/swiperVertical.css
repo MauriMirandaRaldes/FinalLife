@@ -21,7 +21,7 @@
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  padding: 1rem 1rem 0px 1rem;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 .swiper-slide img {

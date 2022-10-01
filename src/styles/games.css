@@ -63,12 +63,13 @@
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .sub-subdiv4-games {
     background-color: mediumseagreen;
     height: 90vh;
 }
+
 /*CSS Cards*/
 .container-cards {
     background-color: green;
