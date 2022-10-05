@@ -33,3 +33,23 @@
   border: 2px solid var(--color1);
   padding: 10px;
 }
+
+/*SwiperSlide details*/
+.custom-slider-details {
+  background: none !important;
+  /* background-color: black !important; */
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+.custom-slider-autoplay {
+  background-color: black !important;
+  object-fit: contain !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  width: 80% !important;
+  height: 80% !important;
+  border: 3px solid white !important;
+  /* width: 90% !important; */
+}

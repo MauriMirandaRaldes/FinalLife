@@ -1,0 +1,67 @@
+const database = "FinalLife"
+
+use(database);
+
+db.games.drop();
+
+db.games.insertMany([
+  {
+    "name": "Shadow of the Colossus",
+    "image": "https://irrompibles.net/irrwp/wp-content/uploads/2018/02/images_2018_informes_shadow-colossus_shadow-colossus-review.jpg",
+    "image2": "https://media.vandal.net/i/640x360/2-2018/2018291761_1.jpg",
+    "image3": "https://fotografias-neox.atresmedia.com/clipping/cmsimages02/2018/07/23/F3BDC581-3658-4F4B-ADF8-07837BFA26D7/98.jpg?crop=640,360,x0,y64&width=1900&height=1069&optimize=high&format=webply",
+    "image4": "https://i.blogs.es/6ccb75/shadow-of-the-colossus-hd-w650/450_1000.webp",
+    "platform": "PS2/PS3/PC",
+    "gender": "Action/Adventure",
+    "story": "The game is about a young man known only as Wander (from the English wanderer, ('wanderer'), who must travel on horseback through a vast territory and defeat 16 giants, known collectively as Colossi to bring back to life a young woman named Mono. The game is unusual among action-adventure video games in that there are no towns or dungeons to explore, no characters to interact with, and no enemies to face other than colossi. Shadow of the Colossus has been described as a puzzle game, as each colossus' weakness must be discovered and exploited before it can be defeated."
+  },
+   {
+    "name": "Silent hill 2",
+    "image": "https://images2.alphacoders.com/151/151812.jpg",
+    "image2": "https://i.imgur.com/3vLslLV.jpeg",
+    "image3": "https://cdn.atomix.vg/wp-content/uploads/2018/07/159704.alfabetajuega-silent-hill-2-hd-150816.jpg",
+    "image4": "https://as01.epimg.net/meristation/imagenes/2022/05/18/noticias/1652854598_757644_1652854719_noticia_normal.jpg",
+    "platform": "PS2/PS3/PC",
+    "gender": "Terror/Suspense",
+    "story": "The game takes place in a fictional universe that partially resembles the real world, where every day you cross paths with another alternate world, which are full of monsters. The protagonist is James Sunderland, who receives a letter from his wife Mary, who died some time before the events of the game. In it, she asks him to go to the resort town of Silent Hill. Arriving at his destination, James meets a mysterious woman named Maria, an almost exact copy of his wife. In the end, he realizes that part of his memories was a self-delusion. The gameplay consists of solving puzzles, searching for the necessary items, exploring locations, confronting the main character and monsters."
+  },
+   {
+    "name": "Zombies ate my neighbors",
+    "image": "https://media.vandal.net/m/100547/zombies-ate-my-neighbors-and-ghoul-patrol-202151111321468_7.jpg",
+    "image2": "https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/IT3QIZCO45FCLEZNX4I2PFMIVM.jpg",
+    "image3": "http://segabits.com/wp-content/uploads/2013/04/3683.zamn_.png",
+    "image4": "https://i.blogs.es/d9a6dd/190220-zombies-mod/1366_2000.jpeg",
+    "platform": "Sega/PC",
+    "gender": "Action/Adventure",
+    "story": "The protagonists of the game are two brothers, Zeke and Julie, who have to move through various scenarios where they must save different people from the attack of monsters of different types and each one with different characteristics and ways of being eliminated. There is a large arsenal of weapons available and secondary items that can be picked up during the game. You must overcome 48 levels and in these it is not necessary to save everyone, but at least one victim, leaving the others to die, which means that in the next level your number of victims will decrease and a door will open for the next level ."
+  },
+   {
+    "name": "Metal Slug",
+    "image": "https://cdn.milenio.com/uploads/media/2020/06/10/metal-slug-clasico-juegos-arcade_29_0_1085_675.jpg",
+    "image2": "https://larepublica.pe/resizer/GKlYCv_djThZ9kk0_Jxna2FzfJg=/480x282/top/smart/cloudfront-us-east-1.images.arcpublishing.com/gruporepublica/3QXSCYUJINEI3BWCYF22HZRHCA.png",
+    "image3": "https://4.bp.blogspot.com/-hXWa9SA5bYY/UcG30jcz97I/AAAAAAAAFpQ/RxD_LIGvMt8/s1600/hgfschfg.png",
+    "image4": "https://i0.wp.com/wtfonline.mx/wp-content/uploads/2020/06/metal-slug.png?fit=1200%2C675&ssl=1",
+    "platform": "Arcade/PC",
+    "gender": "Action/Adventure",
+    "story": "Two soldiers from the Peregrine Falcon squadron, Marco Rossi and Tarma Roving, a small but skilled team of soldiers serving under the Regular Army's special operations division, who fight against General Donald Morden's troops in order to to prevent a massive coup and the creation of a New World Order across the planet, as well as recover the 'Slug' vehicles stolen by them. The player must go through different levels or missions that are presented throughout each scenario of the game."
+  },
+   {
+    "name": "Earthworm Jim",
+    "image": "https://as01.epimg.net/meristation/imagenes/2020/08/12/noticias/1597225785_593200_1597225841_noticia_normal.jpg",
+    "image2": "https://cdn.akamai.steamstatic.com/steam/apps/901147/ss_ae009e4c5cc6c223f2d0fe850c550a69d88273ba.600x338.jpg?t=1634573795",
+    "image3": "https://img.zonared.com/images/noticias/59700/59778/earthworm-jim-contara-con-una-nueva-entrega-a-lo-largo-de-2020_1.jpg","image4": "https://cdn.cloudflare.steamstatic.com/steam/apps/38490/ss_fc8589d6ff1cfaa94e29a428a03485045664bc97.600x338.jpg?t=1644955873",
+    "platform": "PC",
+    "gender": "Action/Adventure",
+    "story": "Earthworm Jim is a 2D platform game. The player controls Jim by moving through the level, avoiding obstacles and enemies. The player has a gun to deal with enemies, or use his head as a whip. This whip (which is the worm itself) also allows you to grab hooks and reach areas of the screen that are inaccessible on foot. Some levels have additional requirements beyond reaching the end of the level."
+  },
+   {
+    "name": "Mortal Kombat 2",
+    "image": "https://www.cinemascomics.com/wp-content/uploads/2022/05/Mortal-Kombat-2.jpg",
+    "image2": "https://as01.epimg.net/meristation/imagenes/2018/04/20/album/1524208920_208920_000001_album_normal.jpg",
+    "image3": "https://wowroms-photos.com/emulators-roms-logo/54/5284/420-420/mk2r30.jpg",
+    "image4": "https://i.blogs.es/4fc90a/170721-mkdoom/1366_2000.jpeg",
+    "platform": "Arcade/PC",
+    "gender": "Battle/Combat",
+    "story": `Is a competitive video game of the fighting and fighting genre, initially produced by the Midway Games studios in arcade machines during the year 1993 and later exported to multiple home systems, including computers or video consoles such as the Mega Drive. The game is part of the so-called "Arcade Kollection" together with the original game and Ultimate Mortal Kombat 3, this collection has been put together to form games like Mortal Kombat Trilogy or Arcade Kollection.`
+  }
+]);

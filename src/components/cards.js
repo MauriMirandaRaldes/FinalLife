@@ -67,8 +67,9 @@ export default function Cards(props) {
         {orderElements.length > 0? orderElements.map(element => {
 
             let render = 
-              <Card  key={element.name}  sx={{ width: 300, height: 300, marginBottom: 4, backgroundColor: "red"}}>
-              <CardActionArea sx={{ backgroundColor: "red"}}>
+              <Card key={element.name}  sx={{ width: 300, height: 300, marginBottom: 4, backgroundColor: "red"}}>
+                <LinkRouter to={`/details/${element._id}`} >
+                <CardActionArea sx={{ backgroundColor: "red"}}>
                 <CardMedia
                   sx={{objectFit: "cover"}}
                   component="img"
@@ -88,6 +89,7 @@ export default function Cards(props) {
                   </Typography>
                 </CardContent>
               </CardActionArea>
+                </LinkRouter>
             </Card>
             return render
 
@@ -95,7 +97,7 @@ export default function Cards(props) {
                <img src={sadGuy} />
                <div className='container-linkrouter-cards'>
                <h2>Your game was not found but dont worry, you can add it clicking the link below</h2>
-               <LinkRouter>
+               <LinkRouter to={"/create-game"}>
                <h3>Click Me</h3>
                </LinkRouter>
                </div>

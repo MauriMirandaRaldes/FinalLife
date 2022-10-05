@@ -5,6 +5,8 @@ import './App.css';
 import Welcome from "./pages/welcome.js"
 import Home from './pages/home';
 import Games from "./pages/games"
+import CreateGame from './pages/createGame';
+import Details from './pages/details';
 
 function App() {
   return(
@@ -13,6 +15,8 @@ function App() {
       <Route path='/' element={<Welcome/>}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/games' element={<Games/>}/>
+      <Route path='/details/:id' element={<Details/>}/>
+      <Route path='/create-game' element={<CreateGame/>}/>
     </Routes>
     </BrowserRouter>
   )
