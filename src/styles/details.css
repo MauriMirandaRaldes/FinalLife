@@ -18,7 +18,7 @@
     z-index: -1;
 }
 .div1-details {
-    background-color: goldenrod;
+    background-color: var(--color1);
     height: 100%;
     width: 50%;
     display: flex;

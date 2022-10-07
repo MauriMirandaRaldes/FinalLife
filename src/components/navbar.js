@@ -14,10 +14,20 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 /*My imports*/
 import heart from "../assets/heart2.png"
-import {Link as LinkRouter} from "react-router-dom"
+import {Link as Linkrouter} from "react-router-dom"
 
 const pages = ["home", "games", "mario", "sonic", "contact"];
-const settings = ['Profile', 'Account', 'Logout'];
+const settings = [
+  {
+    setting1: "Sign in",
+    setting2: "signin"
+  },
+  {
+    setting1: "Sign up",
+    setting2: "signup"
+  },
+
+];
 
 const ResponsiveAppBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -126,7 +136,7 @@ const ResponsiveAppBar = (props) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkRouter className={`linkrouter-nav linkrouter-nav-${page}`} to={`/${page}`} >{page}</LinkRouter>
+                <Linkrouter className={`linkrouter-nav linkrouter-nav-${page}`} to={`/${page}`} >{page}</Linkrouter>
               </Button>
             ))}
 
@@ -155,8 +165,8 @@ const ResponsiveAppBar = (props) => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting.setting2} onClick={handleCloseUserMenu}>
+                  <Linkrouter to={`/${setting.setting2}`} ><Typography textAlign="center">{setting.setting1}</Typography></Linkrouter>
                 </MenuItem>
               ))}
             </Menu>
