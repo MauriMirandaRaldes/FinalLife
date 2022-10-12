@@ -1,4 +1,5 @@
 const Router = require("express").Router()
+const passport = require("passport")
 
 /*Games*/
 const GamesControllers = require("./controllers/gamesControllers")
@@ -12,13 +13,22 @@ Router.route("/allGames/:id")
 
 /*User*/
 const userControllers = require("./controllers/userControllers")
-const {signUp_user, verifyEmail} = userControllers
+const {signUp_user, verifyEmail, signIn_user, verifyToken} = userControllers
 
+/*Sign up*/
 Router.route("/signUp")
 .post(signUp_user)
 
 /*Verification email*/
 Router.route("/verification/:uniqueString")
 .get(verifyEmail)
+
+/*Sign in*/
+Router.route("/signIn")
+.post(signIn_user)
+
+/*Passport*/
+Router.route("/verifyToken")
+.get(passport.authenticate("jwt", {session:false}), verifyToken) /*Primero pasa por passport, y si sale todo bien pasa al controlador*/
 
 module.exports = Router

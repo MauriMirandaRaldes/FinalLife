@@ -1,10 +1,12 @@
 const User = require("../models/userModel")
-const bcryptjs = require("bcryptjs")
-const crypto = require("crypto")
+const bcryptjs = require("bcryptjs") /*bcryptjs es para el encriptado de la contraseña*/
+const crypto = require("crypto") /*crypto es para la creación del uniqueString*/
 /*Send mail*/
 const { google } = require("googleapis")
 const nodemailer = require("nodemailer")
 const Oauth2 = google.auth.OAuth2
+/*Token*/
+const jwt = require("jsonwebtoken")
 
 const sendMail = async (email, uniqueString)=> {
 
@@ -145,6 +147,158 @@ const userControllers = {
                 sucess: false,
                 response: "error",
                 message: "Something went wrong, please try it again"
+            })
+
+        }
+
+    },
+
+    signIn_user: async (req,res)=> {
+
+        let {email, password, from} = req.body
+
+        try {
+
+            let userExist = await User.findOne({email: email})
+
+            if (userExist){
+            /*Si el usuario existe*/    
+
+                if (from !== "signIn"){
+                /*Si el usuario existe y está intentando ingresar por medio de nuestro sign in*/
+
+                  let passwordMatch = userExist.password.filter(element => bcryptjs.compareSync(password, element))
+
+                  if (passwordMatch){
+                  /*Si la contraseña coincide*/  
+
+                    let data = {
+                        firstname: userExist.firstname,
+                        lastname: userExist.lastname,
+                        photoURL: userExist.photoURL,
+                        email: userExist.email,
+                        from: userExist.from,
+                        id: userExist._id /*Le agregamos el id para el desencryptado del token*/
+                    }
+
+                    let token = jwt.sign(data, process.env.SECRET_KEY, {expiresIn: 60 * 60 * 24})
+
+                    res.json({
+                        sucess: true,
+                        response: {data, token},
+                        message: `Welcome again ${userExist.firstname}`
+                    })
+
+                  } else {
+                  /*Si la contraseña no coincide*/  
+
+                    res.json({
+                        sucess: false,
+                        response: "error",
+                        message: `You didnt realize your registred with ${from}, please go sign up and do it`
+                    })
+
+                  }
+
+                } else {
+                /*Si el usuario está intentando ingresar por nuestro formulario de sign in*/
+
+                  if (userExist.verification === true){
+                  /*Si el email fue verificado*/
+
+                  let passwordMatch = userExist.password.filter(element => bcryptjs.compareSync(password, element))
+
+                  if (passwordMatch.length > 0){
+                  /*Si la contraseña coincide*/
+
+                    let data = {
+                        firstname: userExist.firstname,
+                        lastname: userExist.lastname,
+                        photoURL: userExist.photoURL,
+                        email: userExist.email,
+                        id: userExist._id
+                    }
+
+                    let token = jwt.sign(data, process.env.SECRET_KEY, {expiresIn: 60 * 60 * 24})
+
+                    res.json({
+                        sucess: true,
+                        response: {data, token},
+                        message: `Welcome again ${userExist.firstname}`
+                    })
+
+                  } else {
+                  /*Si la contraseña no coincide*/
+
+                    res.json({
+                        sucess: false,
+                        response: "error",
+                        message: "Password and email do not match"
+                    })
+
+                  }
+
+                  } else {
+                  /*Si el email aún no fue verificado*/
+
+                    res.json({
+                        sucess: false,
+                        response: "error",
+                        message: "You need verify your email for sign in"
+                    })
+
+                  }
+
+                }
+
+            } else {
+            /*Si el usuario no existe*/   
+
+              res.json({
+                sucess: false,
+                response: "error",
+                message: "User doesnt exist, please go sign up"
+              })
+
+            }
+
+        } catch(error){
+
+            res.json({
+                sucess: false,
+                response: "error",
+                message: "Something went wrong, please try again"
+            })
+
+        }
+
+    },
+
+    verifyToken: async (req,res)=> {
+
+        let user = await req.user
+
+        if (user){
+
+            res.json({
+                sucess: true,
+                response: {
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    id: req.user.id,
+                    from: "token"
+                },
+                message: `Welcome again ${user.firstname}`
+            })
+
+        } else {
+
+            res.json({
+                sucess: false,
+                response: "error",
+                message: "Your session expired, please sign in again"
             })
 
         }

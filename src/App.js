@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import './App.css';
+/*Redux*/
+import {useDispatch, useSelector} from "react-redux"
+import userActions from './redux/actions/userActions';
 /*Pages*/
 import Welcome from "./pages/welcome.js"
 import Home from './pages/home';
@@ -11,6 +14,17 @@ import SignIn from "./pages/signIn";
 import SignUp from "./pages/signUp"
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  /*El uso del hook useEffect es de suma importancia, ya que de lo contrario se genera un bucle*/
+  useEffect(()=> {
+    if (localStorage.token){
+      const token = localStorage.getItem("token")
+      dispatch(userActions.verifyToken(token))
+    }
+  },[])
+
   return(
     <BrowserRouter>
     <Routes>

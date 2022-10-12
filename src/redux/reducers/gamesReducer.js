@@ -1,5 +1,5 @@
 const initialState = {
-    oneGame: null
+    oneGame: null,
 }
 
 const gamesReducer = (state = initialState, action)=> {
@@ -10,9 +10,9 @@ const gamesReducer = (state = initialState, action)=> {
             ...state,
             oneGame: action.payload
         }
-    
+
         default:
-            return state
+        return state
     }
 
 }
