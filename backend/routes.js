@@ -1,5 +1,7 @@
 const Router = require("express").Router()
 const passport = require("passport")
+/*Validator*/
+const validator = require("./config/validator")
 
 /*Games*/
 const GamesControllers = require("./controllers/gamesControllers")
@@ -17,7 +19,7 @@ const {signUp_user, verifyEmail, signIn_user, verifyToken} = userControllers
 
 /*Sign up*/
 Router.route("/signUp")
-.post(signUp_user)
+.post(validator, signUp_user)
 
 /*Verification email*/
 Router.route("/verification/:uniqueString")

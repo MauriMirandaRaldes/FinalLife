@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 /*Redux*/
 import {useDispatch, useSelector} from "react-redux"
 import userActions from '../redux/actions/userActions';
+/*Assets*/
+import jostick from "../assets/jostick.png"
 
 function Form_SignUp() {
 
@@ -21,34 +23,42 @@ function Form_SignUp() {
             from: "signUp"
         }
 
-        if (data.password == data.password2){
-            dispatch(userActions.signUp_user(data))
+        if (data.firstname == "" || data.lastname == "" || data.photoURL == "" || data.email == "" || data.password == "" || data.password2 == ""){
+          alert("You must complete all the fields")
         } else {
-            alert("Los passwords no coinciden")
+          if (data.password !== data.password2){
+            alert("Passwords do not match")
+          } else {
+            dispatch(userActions.signUp_user(data))
+          }
         }
 
     }
 
   return (
-    <Form onSubmit={sendData} >
-         <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter your name" />
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter your lastname" />
-        <Form.Label>Photo URL</Form.Label>
-        <Form.Control type="text" placeholder="Enter a photo URL" />
-        <Form.Label>Email adress</Form.Label>
-        <Form.Control type="email" placeholder="Enter your email" />
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter a password" />
-        <Form.Label></Form.Label>
-        <Form.Control type="password" placeholder="Repeat password" />
-      </Form.Group>
+    <Form className="form-general-signUp" onSubmit={sendData} >
 
-      <Button variant="primary" type="submit">
+      <Form.Group className="custom-form-signUp" controlId="formBasicEmail">
+        <Form.Label>Name</Form.Label>
+        <Form.Control className="custom-input-signUp" type="text" placeholder="Enter your name" />
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control className='custom-input-signUp' type="text" placeholder="Enter your lastname" />
+        <Form.Label>Photo URL</Form.Label>
+        <Form.Control className='custom-input-signUp' type="text" placeholder="Enter a photo URL" />
+        <Form.Label>Email adress</Form.Label>
+        <Form.Control className='custom-input-signUp' type="email" placeholder="Enter your email" />
+        <Form.Label>Password</Form.Label>
+        <Form.Control className='custom-input-signUp' type="password" placeholder="Enter a password" />
+        <Form.Label>Repeat password</Form.Label>
+        <Form.Control className='custom-input-signUp' type="password" placeholder="Repeat password" />
+        <Button className="button-submit-signUp" variant="primary" type="submit">
         Submit
-      </Button>
+        </Button>
+      </Form.Group>
+      <div className='container-img-signUp'>
+        <img src={jostick} />
+      </div>
+      
     </Form>
   );
 }
