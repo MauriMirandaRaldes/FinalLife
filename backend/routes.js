@@ -15,7 +15,7 @@ Router.route("/allGames/:id")
 
 /*User*/
 const userControllers = require("./controllers/userControllers")
-const {signUp_user, verifyEmail, signIn_user, verifyToken} = userControllers
+const {signUp_user, verifyEmail, signIn_user, verifyToken, signOut_user} = userControllers
 
 /*Sign up*/
 Router.route("/signUp")
@@ -32,5 +32,9 @@ Router.route("/signIn")
 /*Passport*/
 Router.route("/verifyToken")
 .get(passport.authenticate("jwt", {session:false}), verifyToken) /*Primero pasa por passport, y si sale todo bien pasa al controlador*/
+
+/*Sign out*/
+Router.route("/signOut")
+.post(signOut_user)
 
 module.exports = Router

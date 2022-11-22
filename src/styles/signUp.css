@@ -46,3 +46,9 @@
 .container-img-signUp img {
     width: 200px;
 }
+/*MiniGame*/
+.container-miniGame {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}

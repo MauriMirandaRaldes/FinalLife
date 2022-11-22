@@ -303,6 +303,23 @@ const userControllers = {
 
         }
 
+    },
+
+    signOut_user: async (req,res)=> {
+        let firstname = req.body.firstname
+        try {
+            res.json({
+                sucess:true,
+                response: firstname,
+                message: `${firstname} account: Disconected`
+            })
+        } catch (error){
+            res.json({
+                sucess: false,
+                response:"error",
+                message: "Disconect failed"
+            })
+        }
     }
 
 }

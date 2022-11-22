@@ -105,6 +105,21 @@ const userActions = {
             }
 
         }
+    },
+
+    signOut_user: (firstname)=> {
+
+        return async (dispatch, getState)=> {
+            try {
+                if (localStorage.length > 0){
+                    localStorage.removeItem("token")
+                    let data = await axios.post("http://localhost:8000/api/signOut", {firstname})
+                    console.log(data)
+                }
+            } catch (error){
+                console.log(error)
+            }
+        }
     }
 
 }

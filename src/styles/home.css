@@ -47,6 +47,14 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.288) !important;
     background-color: var(--color5) !important;
 }
+.userImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    object-fit: cover;
+    object-position: top;
+    border: 2px solid grey;
+}
 /*Footer*/
 .footer-home {
     height: 20vh;

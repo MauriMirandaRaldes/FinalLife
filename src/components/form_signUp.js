@@ -3,8 +3,7 @@ import Form from 'react-bootstrap/Form';
 /*Redux*/
 import {useDispatch, useSelector} from "react-redux"
 import userActions from '../redux/actions/userActions';
-/*Assets*/
-import jostick from "../assets/jostick.png"
+import MiniGame from './miniGame';
 
 function Form_SignUp() {
 
@@ -56,7 +55,7 @@ function Form_SignUp() {
         </Button>
       </Form.Group>
       <div className='container-img-signUp'>
-        <img src={jostick} />
+        <MiniGame/>
       </div>
       
     </Form>
