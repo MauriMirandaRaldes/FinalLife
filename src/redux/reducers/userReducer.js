@@ -10,6 +10,11 @@ const userReducer = (state = initialState, action)=> {
         return {
             user: action.payload.user,
             message: action.payload.message
+        };
+        case "signOut":
+        return {
+            user: action.payload.user,
+            message: action.payload.message
         }
 
         default:

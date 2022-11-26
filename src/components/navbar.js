@@ -15,35 +15,26 @@ import AdbIcon from '@mui/icons-material/Adb';
 /*My imports*/
 import heart from "../assets/heart2.png"
 import {Link as Linkrouter} from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 import {useSelector, useDispatch} from "react-redux"
 import userActions from "../redux/actions/userActions"
 import CustomizedSnackbars from './snackbar';
 
-const pages = ["home", "games", "mario", "sonic", "contact"];
-const settings = [
-  {
-    setting1: "Sign in",
-    setting2: "signin"
-  },
-  {
-    setting1: "Sign up",
-    setting2: "signup",
-  },
-
-];
+const pages = ["home", "games", "contact"];
 
 const ResponsiveAppBar = (props) => {
 
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const user = useSelector(store => store.userReducer.user)
-  const [reload, setReload] = useState(false)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const logOut = ()=> {
     dispatch(userActions.signOut_user(user.firstname))
-    setReload(!reload)
   }
+
+  console.log(user)
   
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -157,7 +148,8 @@ const ResponsiveAppBar = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {!reload? <img className="userImg" src={user? user.photoURL : "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"}/> : <img className="userImg" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"/> }
+                {/* {!reload? <img className="userImg" src={user? user.photoURL : "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"}/> : <img className="userImg" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"/> } */}
+                {user? <img className="userImg" src={user.photoURL}/> : <img className="userImg" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"  /> }
               </IconButton>
             </Tooltip>
             <Menu
@@ -176,12 +168,17 @@ const ResponsiveAppBar = (props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting.setting2} onClick={handleCloseUserMenu}>
-                  <Linkrouter to={`/${setting.setting2}`} ><Typography textAlign="center">{setting.setting1}</Typography></Linkrouter>
-                </MenuItem>
-              ))}
-              {!reload? user? <Typography onClick={logOut} textAlign="center">Log out</Typography> : null : null}
+
+              {!user? <MenuItem onClick={handleCloseUserMenu}>
+                      <Linkrouter to={`/registration`} ><Typography textAlign="center">Log In</Typography></Linkrouter>
+                      </MenuItem>
+                      :
+                      <MenuItem className="menuItem" onClick={handleCloseUserMenu}>
+                      <Typography onClick={()=> navigate("/myAccount")}>My Account</Typography>
+                      <Typography onClick={logOut}>Log Out</Typography>
+                      </MenuItem>
+                     }
+              
             </Menu>
           </Box>
         </Toolbar>

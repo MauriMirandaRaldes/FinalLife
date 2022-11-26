@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 /*Redux*/
 import {useDispatch, useSelector} from "react-redux"
 import userActions from '../redux/actions/userActions';
-import MiniGame from './miniGame';
 
 function Form_SignUp() {
 
@@ -35,27 +34,24 @@ function Form_SignUp() {
     }
 
   return (
-    <Form className="form-general-signUp" onSubmit={sendData} >
+    <Form className="formGeneralSignUp" onSubmit={sendData} >
 
-      <Form.Group className="custom-form-signUp" controlId="formBasicEmail">
-        <Form.Label>Name</Form.Label>
-        <Form.Control className="custom-input-signUp" type="text" placeholder="Enter your name" />
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control className='custom-input-signUp' type="text" placeholder="Enter your lastname" />
-        <Form.Label>Photo URL</Form.Label>
-        <Form.Control className='custom-input-signUp' type="text" placeholder="Enter a photo URL" />
-        <Form.Label>Email adress</Form.Label>
-        <Form.Control className='custom-input-signUp' type="email" placeholder="Enter your email" />
-        <Form.Label>Password</Form.Label>
-        <Form.Control className='custom-input-signUp' type="password" placeholder="Enter a password" />
-        <Form.Label>Repeat password</Form.Label>
-        <Form.Control className='custom-input-signUp' type="password" placeholder="Repeat password" />
-        <Button className="button-submit-signUp" variant="primary" type="submit">
-        Submit
-        </Button>
-      </Form.Group>
-      <div className='container-img-signUp'>
-        <MiniGame/>
+      <div className='containerInputs'>
+      <div className='formGroup'>
+        <Form.Control className="input" type="text" placeholder="Name" />
+        <Form.Control className='input' type="text" placeholder="Last name" />
+        <Form.Control className='input' type="text" placeholder="Photo URL" />
+        </div>
+        <div className='formGroup'>
+        <Form.Control className='input' type="email" placeholder="Email" />
+        <Form.Control className='input' type="password" placeholder="Password" />
+        <Form.Control className='input' type="password" placeholder="Repeat password" />
+        </div>
+      </div>
+      <div className='containerButtonSubmit'>
+      <Button className="button-submit-signUp" variant="primary" type="submit">
+      Create Account
+      </Button>
       </div>
       
     </Form>

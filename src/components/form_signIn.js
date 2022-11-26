@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React from "react"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 /*Redux*/
@@ -23,7 +23,7 @@ function Form_SignIn() {
   }
 
   return (
-    <Form onSubmit={sendData} >
+    <Form className="formGeneralSignIn" onSubmit={sendData} >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />

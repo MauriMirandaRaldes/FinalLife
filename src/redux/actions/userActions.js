@@ -115,6 +115,15 @@ const userActions = {
                     localStorage.removeItem("token")
                     let data = await axios.post("http://localhost:8000/api/signOut", {firstname})
                     console.log(data)
+
+                    dispatch({
+                        type:"signOut",
+                        payload:{
+                            user:null,
+                            message:data.data.message
+                        }
+                    })
+
                 }
             } catch (error){
                 console.log(error)

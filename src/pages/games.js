@@ -11,7 +11,6 @@ import Cards from "../components/cards"
 
 function Games() {
 
-  
   const [games, setGames] = useState([]);
   const [requiredGames, setRequiredGames] = useState()
   const [checkedGames, setCheckedGames] = useState([])
@@ -118,10 +117,6 @@ function Games() {
           <SwiperVertical/>
         </div>
       </main>
-
-      <footer>
-
-      </footer>
     </>
   );
 }

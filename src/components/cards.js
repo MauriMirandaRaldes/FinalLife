@@ -1,15 +1,18 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
+import {useSelector} from "react-redux"
 /*My imports*/
 import {Link as LinkRouter} from "react-router-dom"
 /*Assets*/
 import sadGuy from "../assets/sad-guy.png"
 
 export default function Cards(props) {
+
+  const user = useSelector(store => store.userReducer.user)
 
   /*Capturo las props que vienen de mi página "games" y coloco cada una en una constante*/
   const allGames = props.allGames
@@ -97,7 +100,7 @@ export default function Cards(props) {
                <img src={sadGuy} />
                <div className='container-linkrouter-cards'>
                <h2>Your game was not found but dont worry, you can add it clicking the link below</h2>
-               <LinkRouter to={"/create-game"}>
+               <LinkRouter to={user? "/createGame" : "/noUserConected"}>
                <h3>Click Me</h3>
                </LinkRouter>
                </div>

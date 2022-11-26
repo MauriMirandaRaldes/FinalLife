@@ -30,6 +30,11 @@
     color: darkred !important;
     text-shadow: 1px 0px black;
 }
+.menuItem {
+    /* background-color: red !important; */
+    display: flex;
+    flex-direction: column;
+}
 /*Linkrouters*/
 .linkrouter-nav {
     padding: 5px;

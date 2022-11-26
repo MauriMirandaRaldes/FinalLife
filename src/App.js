@@ -8,14 +8,16 @@ import userActions from './redux/actions/userActions';
 import Welcome from "./pages/welcome.js"
 import Home from './pages/home';
 import Games from "./pages/games"
-import CreateGame from './pages/createGame';
 import Details from './pages/details';
-import SignIn from "./pages/signIn";
-import SignUp from "./pages/signUp"
+import NoUserConected from "./pages/noUserConected"
+import CreateGame from './pages/createGame';
+import Registration from './pages/registration';
+import MyAccount from "./pages/myAccount"
 
 function App() {
 
   const dispatch = useDispatch()
+  const user = useSelector(store => store.userReducer.user) // para que se actualice el usuario de user fue necesario crear un reducer cuando hago signOut, que vuelva el estado de user a null nuevamente
 
   /*El uso del hook useEffect es de suma importancia, ya que de lo contrario se genera un bucle*/
   useEffect(()=> {
@@ -32,10 +34,9 @@ function App() {
       <Route path='/home' element={<Home/>}/>
       <Route path='/games' element={<Games/>}/>
       <Route path='/details/:id' element={<Details/>}/>
-      <Route path='/create-game' element={<CreateGame/>}/>
-      {/* Sign in and Sign Up */}
-      <Route path='/signin' element={<SignIn/>}/>
-      <Route path='/signup' element={<SignUp/>}/>
+      {!user? <Route path='/noUserConected' element={<NoUserConected/>}/> : <Route path='/createGame' element={<CreateGame/>}/> }
+      {!user? null : <Route path="/myAccount" element={<MyAccount/>} />}
+      <Route path="/registration" element={<Registration/>} />
     </Routes>
     </BrowserRouter>
   )
