@@ -49,7 +49,7 @@ function Form_SignUp() {
         </div>
       </div>
       <div className='containerButtonSubmit'>
-      <Button className="button-submit-signUp" variant="primary" type="submit">
+      <Button className="button-submit-signUp customButtonSubmit" variant="primary" type="submit">
       Create Account
       </Button>
       </div>

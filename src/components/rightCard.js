@@ -20,9 +20,9 @@ export default function RightCard (){
     return (
         <div className="containerLeftCard">
             <div className="leftCard">
-            <div className="rightCardTop">
-                <p onClick={change}>Sign Up</p>
-                <p onClick={change}>Sign In</p>
+            <div className="rightCardTop background1">
+                <p className={`optionChange ${signUp? "wordSignUp" : "hover"}`} onClick={change}>Sign Up</p>
+                <p className={`optionChange   ${signIn? "wordSignIn" : "hover"}`} onClick={change}>Sign In</p>
             </div>
             <div className="containerForms">
                 {signUp? <Form_SignUp/> : <Form_SignIn/>}

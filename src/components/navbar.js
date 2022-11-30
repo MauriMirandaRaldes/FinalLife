@@ -33,8 +33,6 @@ const ResponsiveAppBar = (props) => {
   const logOut = ()=> {
     dispatch(userActions.signOut_user(user.firstname))
   }
-
-  console.log(user)
   
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
