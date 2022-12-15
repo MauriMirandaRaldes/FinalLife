@@ -1,7 +1,10 @@
 const initialState = {
     user: null,
-    message: null,
-    sucessMessage: null
+    messageSignUp: null,
+    messageSignIn: null,
+    messageSignOut: null,
+    sucessMessageSignUp: null,
+    sucessMessageSignIn: null
 }
 
 const userReducer = (state = initialState, action)=> {
@@ -11,24 +14,32 @@ const userReducer = (state = initialState, action)=> {
         return {
             ...state,
             user: action.payload.user,
-            message: action.payload.message
+            messageSignIn: action.payload.message
         };
         case "signOut":
         return {
             ...state,
             user: action.payload.user,
-            message: action.payload.message
+            messageSignOut: action.payload.message,
+            messageSignIn: null,
+            sucessMessageSignIn: null
         }
         case "signUp":
         return {
             ...state,
             user: action.payload.user,
-            message: action.payload.message
+            messageSignUp: action.payload.message
         }
         case "sucessSignUp":
         return {
             ...state,
-            sucessMessage: action.payload.message,
+            sucessMessageSignUp: action.payload.message,
+            user: action.payload.user
+        }
+        case "sucessSignIn":
+        return {
+            ...state,
+            sucessMessageSignIn: action.payload.message,
             user: action.payload.user
         }
 

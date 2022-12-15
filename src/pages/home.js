@@ -1,18 +1,22 @@
 import React from "react";
 import "../styles/home.css"
+import {useSelector} from "react-redux"
 /*Components*/
 import ResponsiveAppBar from "../components/navbar";
 import SwipperInfo from "../components/swiperInfo";
 
 function Home() {
 
+  const userConected = useSelector(store => store.userReducer.sucessMessageSignIn)
+
   return (
     <>
       <header className="header-home" >
         <ResponsiveAppBar/>
       </header>
-      <main className="main-home">
+      <main className="main-home relative">
         <SwipperInfo/>
+      {userConected? <p className="userConected">{userConected}</p> : null}
       </main>
       <footer className="footer-home">
         <div><p><b>Mr.Games</b></p></div>

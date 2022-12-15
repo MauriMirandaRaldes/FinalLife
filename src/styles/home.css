@@ -72,3 +72,22 @@
     font-family: 'IBM Plex Serif', serif;
     color: var(--color1);
 }
+.userConected {
+    position: absolute;
+    background-color: yellow;
+    text-align: center;
+    padding: 1rem;
+    z-index: 10;
+    border-radius: 10px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.548);
+    top: 80%;
+    font-weight: bold;
+    animation: opacity3 1s ease-out;
+}
+@keyframes opacity3 {
+    0% {
+        opacity: .1;
+        scale: .1;
+    }
+   
+}

@@ -26,12 +26,18 @@ const ResponsiveAppBar = (props) => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const user = useSelector(store => store.userReducer.user)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [boolean, setBoolean] = React.useState(false);
+  
+  const {user, messageSignOut} = useSelector(store => store.userReducer)
 
   const logOut = ()=> {
     dispatch(userActions.signOut_user(user.firstname))
+    setBoolean(true)
+    setTimeout(() => {
+      setBoolean(false)
+    }, 5000);
   }
   
   const handleOpenNavMenu = (event) => {
@@ -143,10 +149,10 @@ const ResponsiveAppBar = (props) => {
 
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, position:"relative" }}>
+            {boolean? messageSignOut? <p className="userDisconected" >{messageSignOut}</p> : null : null}
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {/* {!reload? <img className="userImg" src={user? user.photoURL : "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"}/> : <img className="userImg" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"/> } */}
                 {user? <img className="userImg" src={user.photoURL}/> : <img className="userImg" src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"  /> }
               </IconButton>
             </Tooltip>

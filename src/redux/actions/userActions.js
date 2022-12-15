@@ -3,7 +3,6 @@ import axios from "axios"
 const userActions = {
 
     signUp_user: (newData)=> {
-        console.log(newData)
 
         return async (dispatch, getState)=> {
 
@@ -51,7 +50,7 @@ const userActions = {
                     localStorage.setItem("token", data.data.response.token)
 
                     dispatch({
-                        type: "signIn",
+                        type: "sucessSignIn",
                         payload: {
                             user: data.data.response.data,
                             message: data.data.message
@@ -63,7 +62,7 @@ const userActions = {
                     dispatch({
                         type: "signIn",
                         payload: {
-                            user: data.data.response,
+                            user: null,
                             message: data.data.message
                         }
                     })

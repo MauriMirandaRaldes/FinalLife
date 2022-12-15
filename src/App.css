@@ -13,3 +13,22 @@
   --color5: rgb(223, 120, 97);
   --color6: rgb(118, 84, 154);
 }
+.userDisconected {
+  position: absolute;
+  right: 100%;
+  background-color: orange;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.548);
+  font-weight: bold;
+  animation: opacity3 1s ease-out;
+  margin-right: 10px;
+}
+@keyframes opacity3 {
+  0% {
+      opacity: .1;
+      scale: .1;
+  }
+ 
+}

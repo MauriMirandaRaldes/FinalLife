@@ -9,8 +9,8 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 function Form_SignUp() {
 
     const dispatch = useDispatch()
-    const messageSignUp = useSelector(store => store.userReducer.message)
-    const sucessMessage = useSelector (store => store.userReducer.sucessMessage)
+    const messageSignUp = useSelector(store => store.userReducer.messageSignUp)
+    const sucessMessage = useSelector (store => store.userReducer.sucessMessageSignUp)
     const [uncompleteFields, setUncompleteFields] = useState(false)
     const [differentPass, setDifferentPass] = useState(false)
 
