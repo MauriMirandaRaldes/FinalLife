@@ -28,7 +28,7 @@ function Form_SignIn() {
       <div className='containerInputs2'>
       <div className='formGroup2'>
         <Form.Control className="input" type="text" placeholder="Email" />
-        <Form.Control className='input' type="text" placeholder="Password" />
+        <Form.Control className='input' type="password" placeholder="Password" />
       </div>
       </div>
       <div className='containerButtonSubmit'>

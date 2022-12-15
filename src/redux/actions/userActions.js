@@ -3,12 +3,33 @@ import axios from "axios"
 const userActions = {
 
     signUp_user: (newData)=> {
+        console.log(newData)
 
         return async (dispatch, getState)=> {
 
             try {
                 let data = await axios.post("http://localhost:8000/api/signUp", newData)
                 console.log(data)
+
+                if (data.data.sucess){
+
+                    dispatch({
+                        type:"sucessSignUp",
+                        payload: {
+                            message:data.data.message,
+                            user:"New user"
+                        }
+                    })
+                    
+                } else {
+                    dispatch({
+                        type:"signUp",
+                        payload: {
+                            message: data.data.message,
+                            user: "Error, try again"
+                        }
+                    })
+                }
 
             } catch(error){
                 console.log(error)
