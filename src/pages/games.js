@@ -6,8 +6,8 @@ import videogames from "../assets/videogames.png";
 /*Components*/
 import ResponsiveAppBar from "../components/navbar";
 import SwiperVertical from "../components/swiperVertical";
-import fewGames from "../games.json";
 import Cards from "../components/cards"
+// import NoUserConected from "./noUserConected";
 
 function Games() {
 
@@ -20,6 +20,7 @@ function Games() {
     axios
     .get("http://localhost:8000/api/allGames")
     .then((res) => setGames(res.data.response));
+
   }, []);
 
   /*Creo la función encargada de recopilar los datos de mi input tipo texto y los guardo en la const "requiredGames"*/
@@ -81,7 +82,9 @@ function Games() {
         <ResponsiveAppBar visibility={visibility? visibility : null} />
       </header>
 
+
       <main className="main-games">
+
         <div className="div1-games">
           <div className="subdiv1-games">
             <div className="sub-subdiv1-games">

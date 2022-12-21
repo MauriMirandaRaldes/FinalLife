@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import {useState} from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,36 +7,32 @@ import {CardActionArea} from '@mui/material';
 import {useSelector} from "react-redux"
 /*My imports*/
 import {Link as LinkRouter} from "react-router-dom"
+import NoUserConected from '../pages/noUserConected';
 /*Assets*/
 import sadGuy from "../assets/sad-guy.png"
 
-export default function Cards(props) {
+export default function Cards({allGames, inputText, inputCheckbox}) {
 
   const user = useSelector(store => store.userReducer.user)
-
-  /*Capturo las props que vienen de mi página "games" y coloco cada una en una constante*/
-  const allGames = props.allGames
-  const writtenGames = props.inputText
-  const checkedGames = props.inputCheckbox
 
   /*Realizo el filtro cruzado entre el input de texto y los checkboxs*/
   const box = []
   const box2 = []
-  if (writtenGames){
-    writtenGames.map(element => {
+  if (inputText){
+    inputText.map(element => {
       box.push(element)
-      if (checkedGames){
-        checkedGames.map(element2 => {
+      if (inputCheckbox){
+        inputCheckbox.map(element2 => {
           let filterBox = box.filter(element3 => element3.gender == element2.gender)
           box2.push(...filterBox)
         })
       } else {
-        box2.push(...writtenGames)
+        box2.push(...inputText)
       }
     })
   } else {
-    if (checkedGames){
-      box2.push(...checkedGames)
+    if (inputCheckbox){
+      box2.push(...inputCheckbox)
     } else {
       box2.push(...allGames)
     }
@@ -100,9 +96,12 @@ export default function Cards(props) {
                <img src={sadGuy} />
                <div className='container-linkrouter-cards'>
                <h2>Your game was not found but dont worry, you can add it clicking the link below</h2>
-               <LinkRouter to={user? "/createGame" : "/noUserConected"}>
+               {user? <LinkRouter to={"/createGame"}>
                <h3>Click Me</h3>
                </LinkRouter>
+               :
+               <NoUserConected/>
+               }
                </div>
              </div>}  
     </div>

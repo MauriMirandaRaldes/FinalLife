@@ -9,7 +9,6 @@ import Welcome from "./pages/welcome.js"
 import Home from './pages/home';
 import Games from "./pages/games"
 import Details from './pages/details';
-import NoUserConected from "./pages/noUserConected"
 import CreateGame from './pages/createGame';
 import Registration from './pages/registration';
 import MyAccount from "./pages/myAccount"
@@ -34,7 +33,7 @@ function App() {
       <Route path='/home' element={<Home/>}/>
       <Route path='/games' element={<Games/>}/>
       <Route path='/details/:id' element={<Details/>}/>
-      {!user? <Route path='/noUserConected' element={<NoUserConected/>}/> : <Route path='/createGame' element={<CreateGame/>}/> }
+      {!user? null : <Route path='/createGame' element={<CreateGame/>}/> }
       {!user? null : <Route path="/myAccount" element={<MyAccount/>} />}
       <Route path="/registration" element={<Registration/>} />
     </Routes>

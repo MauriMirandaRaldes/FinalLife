@@ -1,13 +1,12 @@
-import React,{useEffect} from  "react"
-import { useParams } from "react-router-dom"
+import {useEffect} from  "react"
+import { useParams, Link as LinkRouter } from "react-router-dom"
 import "../styles/details.css"
-import {Link as LinkRouter} from "react-router-dom"
 /*Redux*/
 import {useDispatch, useSelector} from "react-redux"
 import gamesActions from "../redux/actions/gamesActions"
 // import gamesActions from "../features/games/gamesActions"
 /*Components*/
-import SwiperAutoplay from "../components/swiperAutoplay"
+import SwiperOpacity from "../components/swiperOpacity"
 
 function Details (){
 
@@ -19,15 +18,15 @@ function Details (){
     },[])
 
     /*En la const "selector" guardo la info de la card qué hice click*/
-    const selector = useSelector(store => store.gamesReducer.oneGame)
+    const data = useSelector(store => store.gamesReducer.oneGame)
 
     return (
         <div className="container-details">
-            <img className="img-background-details" src={selector? selector.image : null} alt={selector? selector.image : null} />
+
             <div className="div1-details">
                 <div className="subdiv1-details">
-                <h2>{selector? selector.name : null}</h2>
-                <p>{selector? selector.story : null}</p>
+                <h2>{data? data.name : null}</h2>
+                <p>{data? data.story : null}</p>
                 </div>
                 <div className="subdiv2-details">
                     <LinkRouter to="/games" >
@@ -36,8 +35,9 @@ function Details (){
                 </div>
             </div>
             <div className="div2-details">
-                <SwiperAutoplay details={selector? selector : null} />
+                <SwiperOpacity/>
             </div>
+
         </div>
     )
 }

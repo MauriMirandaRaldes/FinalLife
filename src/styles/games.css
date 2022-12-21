@@ -120,7 +120,7 @@
 .container-linkrouter-cards {
     background-color: orange;
     width: 30%;
-    height: 30vh;
+    min-height: 30vh;
     padding: 10px;
     border-radius: 5px;
     display: flex;
@@ -129,5 +129,44 @@
     justify-content: space-evenly;
     text-align: center;
 }
-
-/*Footer*/
+.modalBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerSubModal {
+    background-color: pink;
+    display: flex;
+}
+.containerIcon-noUserConected {
+    background-color: cyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerData-noUserConected {
+    background-color: lightseagreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.containerData-noUserConected button {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.274);
+    width: 100%;
+    padding: 5px;
+}
+.containerData-noUserConected button:hover {
+    background-color: red;
+    color: white;
+}
+.containerData-noUserConected p {
+    margin-bottom: 5px;
+}
+.icon-noUserConected {
+    color: red;
+    font-size: 50px !important;
+}

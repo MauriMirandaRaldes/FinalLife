@@ -11,11 +11,19 @@
     justify-content: center;
 }
 .img-background-details {
-    position: absolute;
-    height: 100%;
-    width: 100vw;
+    background-color: cyan;
     object-fit: cover;
-    z-index: -1;
+    width: 40%;
+    height: 80%;
+    border-radius: 100%;
+}
+.img-background-details:hover {
+    animation: moving 3s infinite linear alternate;
+}
+@keyframes moving {
+    100% {
+        object-position: right;
+    }
 }
 .div1-details {
     background-color: var(--color1);
