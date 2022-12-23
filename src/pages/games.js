@@ -7,7 +7,6 @@ import videogames from "../assets/videogames.png";
 import ResponsiveAppBar from "../components/navbar";
 import SwiperVertical from "../components/swiperVertical";
 import Cards from "../components/cards"
-// import NoUserConected from "./noUserConected";
 
 function Games() {
 

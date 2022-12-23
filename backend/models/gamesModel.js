@@ -9,7 +9,18 @@ const GamesSchema = new mongoose.Schema(
         image4: {type:String, required:true},
         platform: {type:String, required:true},
         gender: {type:String, required:true},
-        story: {type:String, required:true}
+        story: {type:String, required:true},
+        autor: {type:String},
+        comments: [
+            {
+                comment:{type:String, required:true},
+                date:{type:String, required:true},
+                autor:{
+                    firstname:{type:String, required:true},
+                    photoURL:{type:String, required:true}
+                }
+            }
+        ],
     }
 )
 

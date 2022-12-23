@@ -1,5 +1,6 @@
 const initialState = {
     oneGame: null,
+    message:null
 }
 
 const gamesReducer = (state = initialState, action)=> {
@@ -9,6 +10,13 @@ const gamesReducer = (state = initialState, action)=> {
         return {
             ...state,
             oneGame: action.payload
+        }
+
+        case "updateGame":
+        return {
+            ...state,
+            message:action.payload.message,
+            oneGame:action.payload.updateGame
         }
 
         default:

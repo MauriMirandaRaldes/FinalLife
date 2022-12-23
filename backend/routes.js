@@ -5,13 +5,14 @@ const validator = require("./config/validator")
 
 /*Games*/
 const GamesControllers = require("./controllers/gamesControllers")
-const {getGames, postGame, getOneGame} = GamesControllers
+const {getGames, postGame, getOneGame, modifyGame_addComment} = GamesControllers
 
 Router.route("/allGames")
 .get(getGames)
-.post(postGame)
+.post(passport.authenticate("jwt", {session:false}), postGame)
 Router.route("/allGames/:id")
 .get(getOneGame)
+.put(passport.authenticate("jwt", {session:false}), modifyGame_addComment)
 
 /*User*/
 const userControllers = require("./controllers/userControllers")
@@ -36,5 +37,12 @@ Router.route("/verifyToken")
 /*Sign out*/
 Router.route("/signOut")
 .post(signOut_user)
+
+/*Comments*/
+const commentsControllers = require("./controllers/commentsControllers")
+const {addComment} = commentsControllers
+
+Router.route("/comments")
+.post(passport.authenticate("jwt", {session:false}), addComment)
 
 module.exports = Router

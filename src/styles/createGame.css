@@ -1,0 +1,21 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-createGame {
+    background-color: pink;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-createGame {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80%;
+    padding: 0 2rem;
+}

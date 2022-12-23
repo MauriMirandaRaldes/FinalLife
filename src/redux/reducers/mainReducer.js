@@ -5,7 +5,7 @@ import userReducer from "./userReducer";
 const mainReducer = combineReducers(
     {
         gamesReducer,
-        userReducer
+        userReducer,
     }
 )
 

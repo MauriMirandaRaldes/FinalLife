@@ -1,12 +1,12 @@
-import {useEffect} from  "react"
+import {useEffect, useState} from  "react"
 import { useParams, Link as LinkRouter } from "react-router-dom"
 import "../styles/details.css"
 /*Redux*/
 import {useDispatch, useSelector} from "react-redux"
 import gamesActions from "../redux/actions/gamesActions"
-// import gamesActions from "../features/games/gamesActions"
 /*Components*/
 import SwiperOpacity from "../components/swiperOpacity"
+import Comments from "./comments"
 
 function Details (){
 
@@ -22,13 +22,21 @@ function Details (){
 
     return (
         <div className="container-details">
-
+        
             <div className="div1-details">
                 <div className="subdiv1-details">
-                <h2>{data? data.name : null}</h2>
-                <p>{data? data.story : null}</p>
+                    <div className="containerTitle-details"><h2 className="noMargin">{data? data.name : null}</h2></div>
+                    <div className="containerStory-details"><p className="noMargin">{data? data.story : null}</p></div>
+                    <div>
+                        <ul>
+                        <li>Gender: {data? data.gender : null}</li>
+                        <li>Platform: {data? data.platform : null}</li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="subdiv2-details">
+                    <Comments commentsData={data? data.comments : null} id={id} />
+                    <button>Add favourites</button>
                     <LinkRouter to="/games" >
                     <button>Go Back</button>
                     </LinkRouter>
