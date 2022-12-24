@@ -19,6 +19,13 @@ const gamesReducer = (state = initialState, action)=> {
             oneGame:action.payload.updateGame
         }
 
+        case "updateGame2":
+        return {
+            ...state,
+            message:action.payload.message,
+            oneGame:action.payload.updateGame
+        }
+
         default:
         return state
     }

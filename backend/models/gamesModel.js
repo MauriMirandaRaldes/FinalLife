@@ -17,7 +17,8 @@ const GamesSchema = new mongoose.Schema(
                 date:{type:String, required:true},
                 autor:{
                     firstname:{type:String, required:true},
-                    photoURL:{type:String, required:true}
+                    photoURL:{type:String, required:true},
+                    userId:{type:String, required:true}
                 }
             }
         ],

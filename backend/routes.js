@@ -5,10 +5,11 @@ const validator = require("./config/validator")
 
 /*Games*/
 const GamesControllers = require("./controllers/gamesControllers")
-const {getGames, postGame, getOneGame, modifyGame_addComment} = GamesControllers
+const {getGames, postGame, getOneGame, modifyGame_addComment, modifyGame_deleteComment} = GamesControllers
 
 Router.route("/allGames")
 .get(getGames)
+.put(modifyGame_deleteComment)
 .post(passport.authenticate("jwt", {session:false}), postGame)
 Router.route("/allGames/:id")
 .get(getOneGame)

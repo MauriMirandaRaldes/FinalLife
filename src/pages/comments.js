@@ -3,12 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {useDispatch} from "react-redux"
 import gamesActions from "../redux/actions/gamesActions";
-import sadGuy from "../assets/sad-guy.png"
+import EachComment from "../components/eachComment";
 
 function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
 
   const dispatch = useDispatch()
-
   const handleSubmit = async (e)=> {
     e.preventDefault()
     let data = {
@@ -38,30 +37,8 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
       <button type="submit">Submit</button>
       </form>
 
-        {commentsData? commentsData.length > 0? commentsData.map((element, index) => (
-          <div key={index} className="eachComment">
-            <div className="containerDataAutor">
-             
-              <div className="containerPhotoAutor">
-              <img src={element.autor.photoURL} />
-              </div>
-             <div className="containerInfo">
-              <p>{element.autor.firstname}</p>
-              <p>{element.date}</p>
-             </div>
-            
-            </div>
-            <div className="containerComment">
-             <p>{element.comment}</p>
-            </div>
-          </div>
-        ))
-        : 
-        <div className="containerNoComments">
-        <p>This game has no comments yet, You can be the first!</p>
-        <img src={sadGuy} />
-        </div>
-        : null}
+      <EachComment gameId={id} dispatch={dispatch} gamesActions={gamesActions} commentsData={commentsData} />
+
       </Modal.Body>
       </div>
     </Modal>
