@@ -5,15 +5,16 @@ const validator = require("./config/validator")
 
 /*Games*/
 const GamesControllers = require("./controllers/gamesControllers")
-const {getGames, postGame, getOneGame, modifyGame_addComment, modifyGame_deleteComment} = GamesControllers
+const {getGames, getOneGame, modifyGame_addComment, deleteComment} = GamesControllers
 
+// solamente se puede utilizar un metodo http por ruta creada, no pueden usarse más de una vez. ejemplo: 2 put, 2 post, etc.. solo uno metodo http y no repetirlo
 Router.route("/allGames")
 .get(getGames)
-.put(modifyGame_deleteComment)
-.post(passport.authenticate("jwt", {session:false}), postGame)
+.put(passport.authenticate("jwt", {session:false}), deleteComment)
+
 Router.route("/allGames/:id")
-.get(getOneGame)
 .put(passport.authenticate("jwt", {session:false}), modifyGame_addComment)
+.get(getOneGame)
 
 /*User*/
 const userControllers = require("./controllers/userControllers")

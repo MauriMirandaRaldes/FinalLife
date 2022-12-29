@@ -19,7 +19,8 @@ const GamesSchema = new mongoose.Schema(
                     firstname:{type:String, required:true},
                     photoURL:{type:String, required:true},
                     userId:{type:String, required:true}
-                }
+                },
+                edited:{type:Boolean, required:true}
             }
         ],
     }

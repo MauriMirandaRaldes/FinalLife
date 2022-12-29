@@ -1,12 +1,13 @@
 import {useState} from "react"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import gamesActions from "../redux/actions/gamesActions";
 import EachComment from "../components/eachComment";
 
 function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
-
+  
+  const user = useSelector(store => store.userReducer.user)
   const dispatch = useDispatch()
   const handleSubmit = async (e)=> {
     e.preventDefault()
@@ -14,7 +15,18 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
       text:await e.target[0].value,
       gameId:await id
     }
-    dispatch(gamesActions.modifyGame_addComment(data))
+
+    if (!e.target[0].value){
+      alert("Tienes que escribir algo")
+    } else {
+      if (user){
+        dispatch(gamesActions.modifyGame_addComment(data))
+        e.target[0].value = ""
+      } else {
+        alert("Tienes que logearte para poder comentar")
+      }
+    }
+
   }
 
   return (
@@ -32,12 +44,17 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="modalBody-comments" >
+
+      <div className="containerFormComments">
       <form className="commentsForm" onSubmit={handleSubmit}>
       <input placeholder="Add your comment" type={"text"} />
       <button type="submit">Submit</button>
       </form>
+      </div>
 
-      <EachComment gameId={id} dispatch={dispatch} gamesActions={gamesActions} commentsData={commentsData} />
+      <div className="containerComponentComments">
+      <EachComment user={user} gameId={id} dispatch={dispatch} gamesActions={gamesActions} commentsData={commentsData} />
+      </div>
 
       </Modal.Body>
       </div>
