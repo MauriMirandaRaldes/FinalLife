@@ -1,19 +1,24 @@
 import {useState} from "react"
 import sadGuy from "../assets/sad-guy.png"
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-export default function EachComment ({commentsData, dispatch, gamesActions, gameId, user}){
+export default function EachComment ({commentsData, dispatch, gamesActions, gameId, user, captureData}){
 
     const userId = user?.id
     const allComments = commentsData? commentsData : null
     const [newComment, setNewComment] = useState()
+    const [comingSoon, setComingSoon] = useState(false)
+
+    /*Paso el estado de comingSoon del componente hijo al componente padre*/
+    captureData.setAlert3(comingSoon)
 
     const deleteComment = (commentId)=> {
         let data = {commentId, gameId}
         dispatch(gamesActions.deleteComment(data))
     }
 
+    /*Para modificar un comentario necesito enviar 3 cosas: el Id del juego, el Id del comentario y el nuevo texto*/
     const modifyComment = async (e)=> {
-        // tengo que enviar a las actions 3 cosas: el id del juego, el id del comentario y el nuevo texto
         e.preventDefault()
         let data = {
             text: await e.target[0].value,
@@ -27,10 +32,19 @@ export default function EachComment ({commentsData, dispatch, gamesActions, game
         }
     }
 
-    // Ordeno los elemntos de mi array en sentido contrario, para que los comentarios más nuevos se coloquen primero, y los más viejos por detrás
+    /*Ordeno los comentarios de forma que queden los más nuevos al comienzo, y los más viejos atrás*/
     const box = []
     for (let i=allComments.length - 1; i >= 0; i--) {
         box.push(allComments[i])
+    }
+
+    const alertComingSoon = ()=> {
+        captureData.setAlert(false)
+        captureData.setAlert2(false)
+        setComingSoon(true)
+        setTimeout(() => {
+            setComingSoon(false)
+        }, 3000);
     }
 
     return (
@@ -77,6 +91,15 @@ export default function EachComment ({commentsData, dispatch, gamesActions, game
              <p>{element.comment}</p>
              {element.edited? <p className="edited">edited</p> : null}
             </div>
+            <div className="containerResponseComment">
+                <div className="containerLike">
+                    <ThumbUpIcon onClick={alertComingSoon} className="likeIcon" fontSize="small" />
+                    <p>0</p>
+                </div>
+                <div className="containerButtonAnswer">
+                <button onClick={alertComingSoon}>Answer</button>
+                </div>
+         </div>
             </div>
         ) : <div className="containerNoComments">
         <p>This game has no comments yet, You can be the first!</p>

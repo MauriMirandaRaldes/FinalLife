@@ -9,6 +9,10 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
   
   const user = useSelector(store => store.userReducer.user)
   const dispatch = useDispatch()
+  const [alert, setAlert] = useState(false)
+  const [alert2, setAlert2] = useState(false)
+  const [alert3, setAlert3] = useState()
+
   const handleSubmit = async (e)=> {
     e.preventDefault()
     let data = {
@@ -17,13 +21,23 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
     }
 
     if (!e.target[0].value){
-      alert("Tienes que escribir algo")
+      setAlert2(false)
+      setAlert3(false)
+      setAlert(true)
+      setTimeout(() => {
+        setAlert(false)
+      }, 3000);
     } else {
       if (user){
         dispatch(gamesActions.modifyGame_addComment(data))
         e.target[0].value = ""
       } else {
-        alert("Tienes que logearte para poder comentar")
+        setAlert(false)
+        setAlert3(false)
+        setAlert2(true)
+        setTimeout(() => {
+          setAlert2(false)
+        }, 3000);
       }
     }
 
@@ -46,6 +60,9 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
       <Modal.Body className="modalBody-comments" >
 
       <div className="containerFormComments">
+
+        {alert? <p className="alertNoText">You must write something</p> : alert2? <p className="alertNoText">You need login for write a comment</p> : alert3? <p className="alertNoText">Coming Soon..</p> : null }
+
       <form className="commentsForm" onSubmit={handleSubmit}>
       <input placeholder="Add your comment" type={"text"} />
       <button type="submit">Submit</button>
@@ -53,7 +70,7 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
       </div>
 
       <div className="containerComponentComments">
-      <EachComment user={user} gameId={id} dispatch={dispatch} gamesActions={gamesActions} commentsData={commentsData} />
+      <EachComment captureData={{setAlert, setAlert2, setAlert3}} user={user} gameId={id} dispatch={dispatch} gamesActions={gamesActions} commentsData={commentsData} />
       </div>
 
       </Modal.Body>

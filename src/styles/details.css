@@ -135,7 +135,7 @@
 }
 .containerComment {
     background-color: cyan;
-    height: 70%;
+    height: 50%;
     overflow: auto;
     padding: 1rem;
     position: relative;
@@ -156,9 +156,10 @@
 }
 .containerButtons button {
     border: none;
-    padding: 5px 10px;
+    border: none;
     border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(128, 128, 128, 0.678);
+    font-size: 13px;
+    padding: 5px;
 }
 .containerButtons button:hover {
     background-color: grey;
@@ -253,6 +254,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .containerComponentComments {
     background-color: purple;
@@ -266,3 +268,58 @@
     padding:1.5rem;
     row-gap: 1rem;
 }
+.alertNoText {
+    background-color: red;
+    color: white;
+    position: absolute;
+    padding: 1rem;
+    top: 20%;
+    border-radius: 10px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.548);
+    font-weight: bold;
+    animation: opacity3 500ms ease-out;
+}
+.containerResponseComment {
+    background-color: pink;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.containerLike{
+    /* background-color: cornflowerblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    gap: 5px;
+}
+.containerLike p {
+    margin: 0 !important;
+}
+.containerButtonAnswer {
+    /* background-color: rgb(47, 80, 44); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+.containerButtonAnswer button {
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 5px;
+}
+.containerButtonAnswer button:hover {
+    background-color: grey;
+    color: white;
+}
+.containerButtonAnswer button:active {
+    background-color: lightgrey;
+}
+.likeIcon:hover {
+    cursor: pointer;
+} 
