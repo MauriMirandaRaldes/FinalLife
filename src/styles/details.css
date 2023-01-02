@@ -7,6 +7,9 @@
 .modal-body {
     padding: 0 !important;
 }
+.modal-header {
+    border: none !important;
+}
 .container-details {
     height: 100vh;
     display: flex;
@@ -32,6 +35,7 @@
     background-color: var(--color1);
     height: 100%;
     width: 50%;
+    border-right: 2px solid var(--color1);
 }
 .div2-details {
     width: 50%;
@@ -41,26 +45,35 @@
     justify-content: center;
 }
 .subdiv1-details {
-    background-color: pink;
+    background-color: var(--color6);
     height: 80%;
-    padding: 2rem 1rem;
+    color: var(--color3);
+    padding: 2rem 0 2rem 1.5rem;
 }
 .subdiv2-details {
-    background-color: cyan;
+    background-color: var(--color6);
     height: 20%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: var(--color5);
 }
 .subdiv2-details button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    box-shadow: 0px 3px 4px #0000008e;
+    background-color: var(--color3);
+    color: var(--color2);
 }
 .subdiv2-details button:hover {
-    background-color: coral;
-    color: white;
+    background-color: var(--color1);
+    color: var(--color6);
+    outline: 2px solid var(--color6);
+}
+.subdiv2-details button:active {
+    background-color: lightgrey !important;
+    color: var(--color1);
+    outline: 2px solid var(--color6);
 }
 .noMargin {
     margin: 0;
@@ -84,22 +97,28 @@
     height: 90vh;
 }
 .modalHeader {
-    background-color: lightcoral;
+    /* background-color: var(--color3); */
+    background-color: var(--color3);
     height: 10%;
 }
 .modalBody-comments {
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
     height: 90%;
     display: flex;
 }
 .eachComment {
-    background-color: white;
+    background-color: var(--color4);
     width: 30%;
     height: 45%;
+    border: 2px solid var(--color1);
+    border-radius: 5px;
 }
 .eachComment img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
 }
 .commentsForm {
     height: 20%;
@@ -108,13 +127,15 @@
     align-items: center;
     justify-content: space-evenly;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 2px solid var(--color1);
 }
 .commentsForm input {
     border: none;
     text-align: center;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid var(--color1);
     background: none;
+    outline: none;
+    color: var(--color1);
 }
 .commentsForm input::placeholder {
     color: white;
@@ -122,54 +143,64 @@
 .commentsForm button {
     border: none;
     background: none;
-    border: 1px solid white;
+    border: 2px solid var(--color1);
     padding: 5px;
     border-radius: 5px;
     color: white;
 }
 .containerDataAutor {
-    background-color: crimson;
+    /* background-color: crimson; */
+    background-color: var(--color6);
     height: 30%;
     display: flex;
     padding: 5px;
+    color: var(--color1);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .containerComment {
-    background-color: cyan;
     height: 50%;
     overflow: auto;
     padding: 1rem;
     position: relative;
 }
 .containerMyComment {
-    background-color: rgb(138, 175, 130);
+    background-color: var(--color4);
     height: 50%;
     padding: 1rem;
     overflow:auto;
     position:relative
 }
 .containerButtons {
-    background-color: lightpink;
+    /* background-color: lightpink; */
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: 20%;
+    border-top: 2px solid var(--color1);
 }
 .containerButtons button {
     border: none;
-    border: none;
     border-radius: 5px;
-    font-size: 13px;
-    padding: 5px;
+    font-size: 12px;
+    padding: 4px 10px;
+    background-color: var(--color3);
 }
 .containerButtons button:hover {
-    background-color: grey;
-    color: white;
+    background-color: var(--color1);
+    color: var(--color6);
+    outline: 2px solid var(--color6);
+}
+.containerButtons button:active {
+    background-color: lightgrey !important;
+    color: var(--color1);
+    outline: 2px solid var(--color6);
 }
 .containerButtons button:active {
     background-color: lightgray;
 }
 .containerInfo {
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -181,7 +212,7 @@
     margin: 0;
 }
 .containerPhotoAutor {
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 20%;
     height: 100%;
 }
@@ -199,12 +230,13 @@
     width: 50%;
 }
 .edited {
-    background-color: crimson;
+    /* background-color: crimson; */
+    background-color: var(--textAlert);
     color: white;
     position: absolute;
     right: 0;
     top:0;
-    padding:0px 10px 5px 10px;
+    padding:0px 5px 2px 5px;
     border-bottom-left-radius: 10px;
     font-size: 12px;
 }
@@ -212,10 +244,11 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.247);
     border-radius: 5px;
+    outline: 2px solid var(--color1);
 }
 .formModifyComment textarea {
+    background-color: var(--color5);
     width: 80%;
     border: none;
     padding: 10px;
@@ -224,17 +257,30 @@
     border-bottom-left-radius: 5px;
 }
 .formModifyComment textarea:hover {
-    background-color: rgb(199, 199, 199);
+    background-color: lightgray;
 }
 .formModifyComment textarea:focus {
-    box-shadow: none;
-   background-color:lightblue;
-   color: white;
+   background-color: lightgray;
 }
 .formModifyComment button {
     border: none;
-    font-size: 10px;
     width: 20%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formModifyComment button:hover p {
+    color: var(--color5);
+}
+.verticalText {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    margin: 0 !important;
+    font-size: 7px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 .resizeNone {
     resize: none;
@@ -248,16 +294,20 @@
     color: lightskyblue;
 }
 .containerFormComments {
-    background-color: rgb(168, 38, 38);
+    /* background-color: rgb(168, 38, 38); */
+    background-color: var(--color5);
     height: 100%;
     width: 30%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
+    border-right: 2px solid var(--color1);
 }
 .containerComponentComments {
-    background-color: purple;
+    /* background-color: purple; */
+    background-color: var(--color5);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -269,7 +319,8 @@
     row-gap: 1rem;
 }
 .alertNoText {
-    background-color: red;
+    /* background-color: rgb(199, 35, 35); */
+    background-color: var(--textAlert);
     color: white;
     position: absolute;
     padding: 1rem;
@@ -280,7 +331,8 @@
     animation: opacity3 500ms ease-out;
 }
 .containerResponseComment {
-    background-color: pink;
+    /* background-color: pink; */
+    border-top: 2px solid var(--color1);
     height: 20%;
     display: flex;
     justify-content: center;
@@ -310,16 +362,27 @@
 .containerButtonAnswer button {
     border: none;
     border-radius: 5px;
-    font-size: 13px;
-    padding: 5px;
+    font-size: 12px;
+    padding: 4px 10px;
+    background-color: var(--color3);
 }
 .containerButtonAnswer button:hover {
-    background-color: grey;
-    color: white;
+     background-color: var(--color1);
+    color: var(--color6);
+    outline: 2px solid var(--color6);
 }
 .containerButtonAnswer button:active {
-    background-color: lightgrey;
+     background-color: lightgrey !important;
+    color: var(--color1);
+    outline: 2px solid var(--color6);
 }
 .likeIcon:hover {
     cursor: pointer;
-} 
+}
+.lightGray {
+    color: lightgray;
+    font-size: 12px;
+}
+.myComments {
+    color: rgb(255, 213, 111);
+}

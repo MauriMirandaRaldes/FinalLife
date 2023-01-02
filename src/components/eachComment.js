@@ -26,7 +26,12 @@ export default function EachComment ({commentsData, dispatch, gamesActions, game
             commentId: newComment
         }
         if (!e.target[0].value){
-            alert("Tienes que escribir algo")
+            captureData.setAlert2(false)
+            captureData.setAlert3(false)
+            captureData.setAlert(true)
+            setTimeout(() => {
+                captureData.setAlert(false)
+           }, 3000);
         } else {
             dispatch(gamesActions.deleteComment(data))
         }
@@ -56,15 +61,15 @@ export default function EachComment ({commentsData, dispatch, gamesActions, game
            <img src={element.autor.photoURL} />
            </div>
           <div className="containerInfo">
-           <p>{element.autor.firstname}</p>
-           <p>{element.date}</p>
+           <p className="myComments">{element.autor.firstname}</p>
+           <p className="lightGray">{element.date}</p>
           </div>
          </div>
          <div className="containerMyComment">
            {newComment === element._id?
            <form className="formModifyComment" onSubmit={modifyComment}>
             <textarea className="resizeNone" type={"text"} defaultValue={element.comment} />
-            <button type="submit">Submit</button>
+            <button type="submit"><p className="verticalText" >Submit</p></button>
            </form>
            :
            <p>{element.comment}</p>}
@@ -73,7 +78,7 @@ export default function EachComment ({commentsData, dispatch, gamesActions, game
          <div className="containerButtons">
             <button onClick={()=> deleteComment(element._id)}>Delete</button>
             {newComment === element._id? <button className="cancelModifyComment" onClick={()=> setNewComment(false)} >Cancel</button> : <button onClick={()=> setNewComment(element._id)}>Modify</button> }
-            <button>Answer</button>
+            <button onClick={alertComingSoon}>Answer</button>
          </div>
          </div>
             : 
@@ -84,7 +89,7 @@ export default function EachComment ({commentsData, dispatch, gamesActions, game
               </div>
              <div className="containerInfo">
               <p>{element.autor.firstname}</p>
-              <p>{element.date}</p>
+              <p className="lightGray">{element.date}</p>
              </div>
             </div>
             <div className="containerComment">

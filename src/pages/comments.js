@@ -64,9 +64,10 @@ function MyVerticallyCenteredModal({show, onHide, id, commentsData}) {
         {alert? <p className="alertNoText">You must write something</p> : alert2? <p className="alertNoText">You need login for write a comment</p> : alert3? <p className="alertNoText">Coming Soon..</p> : null }
 
       <form className="commentsForm" onSubmit={handleSubmit}>
-      <input placeholder="Add your comment" type={"text"} />
+      <input className="focus" placeholder="Add your comment" type={"text"} />
       <button type="submit">Submit</button>
       </form>
+
       </div>
 
       <div className="containerComponentComments">
