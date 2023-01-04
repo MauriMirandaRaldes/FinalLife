@@ -3,6 +3,11 @@ const passport = require("passport")
 /*Validator*/
 const validator = require("./config/validator")
 
+/*Phrases*/
+const getAllPhrases = require("./controllers/phrasesControllers")
+Router.route("/allPhrases")
+.get(getAllPhrases)
+
 /*Games*/
 const GamesControllers = require("./controllers/gamesControllers")
 const {getGames, getOneGame, modifyGame_addComment, deleteComment} = GamesControllers

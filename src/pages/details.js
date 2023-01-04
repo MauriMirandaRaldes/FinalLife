@@ -31,6 +31,7 @@ function Details (){
                         <ul>
                         <li>Gender: {data? data.gender : null}</li>
                         <li>Platform: {data? data.platform : null}</li>
+                        <li>Autor: {data? data.autor : null}</li>
                         </ul>
                     </div>
                 </div>

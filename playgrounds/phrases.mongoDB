@@ -1,3 +1,10 @@
+const database = "FinalLife"
+
+use(database);
+
+db.phrases.drop();
+
+db.phrases.insertMany(
 [
     {
         "phrase": "“ All your base are belong to us ”",
@@ -155,3 +162,4 @@
         "photo": "https://pressover.news/wp-content/uploads/2022/01/the-top-25-rpgs-of-all-time-2-planescape-torment.jpg"
     }
 ]
+)

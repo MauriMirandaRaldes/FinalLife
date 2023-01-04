@@ -1,7 +1,7 @@
 import {useState} from "react"
 import LeftCard from "../components/leftCard"
 import "../styles/registration.css"
-import RightCard from "../components/rightCard"
+import {RightCard} from "../components/rightCard"
 
 export default function Registration (){
 
