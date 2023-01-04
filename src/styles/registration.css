@@ -1,11 +1,12 @@
 .container {
-    background-color: lightblue;
+    background-color: var(--color3);
     height: 100vh;
     max-width: 100% !important;
     display: flex;
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box;
+    justify-content: center;
 }
 .formGeneralSignUp {
     /* background-color: cyan; */
@@ -22,7 +23,7 @@
     justify-content: center;
 }
 .containerInputs {
-    background-color: orange;
+    background-color: var(--color5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,16 +31,32 @@
     height: 80%;
     width:100%;
     animation: opacity 1s ease-in;
+    border-top: 2px solid var(--color1);
+}
+.borderBottom {
+    border-bottom: 2px solid var(--color5);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+}
+.borderBottom2 {
+    border-bottom: 2px solid var(--color6);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
 }
 
 .containerInputs2 {
-    background-color: lightcoral;
+    background-color:var(--color6);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3rem;
     height: 80%;
     width:100%;
+    border-top: 2px solid var(--color1);
 }
 
 .containerButtonSubmit {
@@ -52,7 +69,7 @@
 .containerLeftCard {
     /* background-color: red; */
     height: 100%;
-    width: 100%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,9 +77,9 @@
 .leftCard {
     /* background-color: purple; */
     height: 80%;
-    width: 50%;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.452);
+    width: 80%;
     border-radius: 10px;
+    border: 2px solid var(--color1);
 }
 .leftCardTop {
     background-color: lightcyan;
@@ -73,11 +90,148 @@
     height: 10%;
 }
 .containerRightCard {
-    background-color: lightgreen;
-    width: 50%;
+    /* background-color: lightgreen; */
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eachPhrase {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color1);
+    border-radius: 10px;
+    position: relative;
+    animation: appearPhrase 800ms linear;
+}
+.eachPhrase2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color1);
+    border-radius: 10px;
+    position: relative;
+    animation: appearPhrase2 800ms linear;
+}
+@keyframes appearPhrase {
+    0% {
+        transform: scale(.2);
+    }
+}
+@keyframes appearPhrase2 {
+    0% {
+        transform: scale(.2);
+    }
+}
+.eachPhrase button {
+    border: none;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    background-color: lightgray;
+    border: 2px solid var(--color1);
+    border-top: none;
+    position: absolute;
+    top: 100%;
+    font-weight: bold;
+    color: var(--textAlert);
+}
+.eachPhrase button:hover {
+    color: var(--color6);
+}
+.eachPhrase p {
+    margin: 0;
+    text-align: center;
+    font-family:cursive;
+}
+.eachPhrase2 button {
+    border: none;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    background-color: lightgray;
+    border: 2px solid var(--color1);
+    border-top: none;
+    position: absolute;
+    top: 100%;
+    font-weight: bold;
+    color: var(--textAlert);
+}
+.eachPhrase2 button:hover {
+    color: var(--color6);
+}
+.eachPhrase2 p {
+    margin: 0;
+    text-align: center;
+    font-family:cursive;
+}
+.poss {
+    background-color: red;
+    position: absolute;
+}
+.figure {
+    position: relative;
+}
+.containerAutorPhrase {
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-height: 15vh;
+    padding: 30px;
+    position: relative;
+    border-radius: 0 0 10px 10px;
+}
+.containerPhrase {
+    background-color: rgb(175, 175, 175);
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 2px solid var(--color1);
+    color: var(--color1);
+    border-radius: 10px 10px 0 0 ;
+}
+.autorPhrase {
+    /* background-color: red; */
+    position: absolute;
+    top: 70%;
+    color: var(--color1);
+    left: 50%;
+    border: 2px solid var(--color1);
+    transform: translate(-50%,-50%);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 25px;
+    width: 70%;
+    text-transform: uppercase;
+}
+.containerAutorPhrase img{
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    border: 2px dashed var(--color1);
+    padding: 5%;
+}
+.phrase {
+    /* background-color: red; */
+    width: 100%;
+    /* padding: 10px; */
+    /* border-bottom: 2px dashed var(--color1); */
+    /* border: 2px double var(--color1);
+    border-radius: 10px; */
 }
 .rightCardTop {
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
@@ -94,16 +248,21 @@
  border: none !important;
  padding:10px !important;
  background: none !important;
- border-bottom: 1px solid grey !important;
- color: white !important;
+ border-bottom: 2px solid var(--color1) !important;
+ color: var(--color1) !important;
 }
 .input:hover {
-    background-color: rgba(255, 255, 255, 0.144) !important;
+    background-color: rgba(211, 211, 211, 0.651) !important;
+    border-radius: 10px 10px 0 0 !important;
 }
 .input:focus {
    box-shadow: none !important;
-   background-color: rgba(255, 255, 255, 0.144) !important;
-   color: white !important;
+   background-color: rgba(211, 211, 211, 0.651) !important;
+   color: var(--color1) !important;
+   border-radius: 10px 10px 0 0 !important;
+}
+.input::placeholder {
+    color: var(--color1) !important;
 }
 .formGroup {
     /* background-color: lightseagreen; */
@@ -121,8 +280,7 @@
 }
 .background1 {
     animation: travel-background 20s infinite linear alternate;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-radius: 10px 10px 0 0;
 }
 @keyframes travel-background {
     0% {
@@ -146,20 +304,30 @@
     text-shadow: 2px 0px 1px rgba(0, 0, 0, 0.473);
 }
 .wordSignUp {
-    background-color: orange;
+    background-color: var(--color5);
     padding: 10px 20px;
     margin: 0;
     border-radius: 10px 10px 0 0;
+    position:relative;
+    outline: 2px solid var(--color1);
 }
 .wordSignIn {
-    background-color: lightcoral;
+    background-color: var(--color6);
     padding: 10px 20px;
     margin: 0;
     border-radius: 10px 10px 0 0;
+    position:relative;
+    outline: 2px solid var(--color1);
 }
 .hover {
     color: rgba(255, 255, 255, 0.671);
     text-shadow: 2px 0px 1px rgba(0, 0, 0, 0.473);
+}
+.hover .borderBottom{
+    display: none;
+}
+.hover .borderBottom2 {
+    display: none;
 }
 .hover:hover {
     cursor: pointer;
@@ -173,9 +341,10 @@
 }
 .absolute {
     position: absolute;
-    color: red;
+    color: var(--color3);
     top:100%;
     font-size: 10px;
+    font-weight: bold;
 }
 .relative {
     position: relative;

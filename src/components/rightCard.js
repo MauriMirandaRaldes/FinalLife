@@ -1,33 +1,40 @@
-import { useState } from "react";
-import Form_SignIn from "./form_signIn";
-import Form_SignUp from "./form_signUp"
+import {useState, useEffect} from "react"
+import gamesPhrases from "../gamesPhrases.json"
 
 export default function RightCard (){
 
-    const [signUp, setSignUp] = useState(true)
-    const [signIn, setSignIn] = useState(false)
-
-    const change = (e)=> {
-        if (e.target.innerText === "Sign Up"){
-            setSignUp(true)
-            setSignIn(false)
-        } else {
-            setSignIn(true)
-            setSignUp(false)
-        }
-    }
+    var number = Math.floor(Math.random()*30)
+    const [reload, setReload] = useState(false)
+    const [randomPhrase, setRandomPhrase] = useState()
+    
+    // Cuando cambia el valor de reload, se ejecuta lo que está acá dentro. No entiendo a profundidad por qué razón el valor de la variable number también se modifica dentro del useEffect
+    useEffect(()=> {
+        setRandomPhrase(gamesPhrases.filter((element, index) => index === number))
+    },[reload])
 
     return (
-        <div className="containerLeftCard">
-            <div className="leftCard">
-            <div className="rightCardTop background1">
-                <p className={`optionChange ${signUp? "wordSignUp" : "hover"}`} onClick={change}>Sign Up</p>
-                <p className={`optionChange   ${signIn? "wordSignIn" : "hover"}`} onClick={change}>Sign In</p>
+        <div className="containerRightCard">
+            {randomPhrase?.length > 0? reload?
+            <div className="eachPhrase">
+                <div className="containerPhrase">
+                 <p className="phrase">{randomPhrase[0].phrase}</p>
+                </div>
+                <div className="containerAutorPhrase">
+                  <img title={randomPhrase[0].autor} src={randomPhrase[0].photo}/>
+                  <p className="autorPhrase" >{randomPhrase[0].autor}</p>
+                </div>
+                <button onClick={()=> setReload(!reload)}>Change phrase</button>
+            </div> :  <div className="eachPhrase2">
+                <div className="containerPhrase">
+                 <p className="phrase">{randomPhrase[0].phrase}</p>
+                </div>
+                <div className="containerAutorPhrase">
+                  <img title={randomPhrase[0].autor} src={randomPhrase[0].photo}/>
+                  <p className="autorPhrase" >{randomPhrase[0].autor}</p>
+                </div>
+                <button onClick={()=> setReload(!reload)}>Change phrase</button>
             </div>
-            <div className="containerForms">
-                {signUp? <Form_SignUp/> : <Form_SignIn/>}
-            </div>
-            </div>
+            : <p>Loading..</p>}
         </div>
     )
 }
